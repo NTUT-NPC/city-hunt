@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" width="500">
     <template v-slot:activator="{ on }">
-      <v-btn color="red lighten-2" dark v-on="on">詳細資訊</v-btn>
+      <v-btn color="orange" class="subheading" round dark v-on="on">詳細資訊</v-btn>
     </template>
 
     <v-card>
@@ -18,11 +18,10 @@
         </v-container>
       </v-card-text>
 
-      <v-divider></v-divider>
-
       <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" flat @click="dialog = false">額外提示</v-btn>
+        <v-layout justify-center>
+          <v-btn class="subheading" color="orange" round dark @click="dialog = false">額外提示</v-btn>
+        </v-layout>
       </v-card-actions>
     </v-card>
   </v-dialog>
