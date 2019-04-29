@@ -8,9 +8,7 @@ jobs:
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
-            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - node-v1-{{ .Branch }}-
-            - node-v1-
+            - node-v1-{{ checksum "package-lock.json" }}-
 
       - run:
           name: Install dependencies
@@ -19,11 +17,11 @@ jobs:
       - save_cache:
           paths:
             - ~/usr/local/lib/node_modules # location depends on npm version
-          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: node-v1-{{ checksum "package-lock.json" }}
       
       - run:
           name: Build
-          command: npm run build
+          command: npm run build  
 
       - run:
           name: lint
