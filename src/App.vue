@@ -1,6 +1,15 @@
 <template>
-  <div id="app"></div>
+<div>
+<BagCard></BagCard>
+</div>
 </template>
 
-<style lang="scss">
-</style>
+<script>
+import BagCard from './components/BagCard.vue'
+
+export default {
+  components: {
+    BagCard
+  }
+}
+</script>
