@@ -1,41 +1,57 @@
 <template>
-<v-card>
-        <v-card-actions>
-          <v-spacer></v-spacer>
+  <v-card>
+    <div class="item">
+      <div class="item_top">
+        <slot name = "title" class="item_title"></slot>
+        <v-card-actions class="item_close">
           <v-btn
             @click="set"
           >
-            I accept
+            X
           </v-btn>
         </v-card-actions>
-        <v-divider></v-divider>
-        <slot name = "title"></slot>
+      </div>
+      <div>
         <slot name = "img"></slot>
-        <slot name = "describe"></slot>
-      </v-card>
+      </div>
+      <v-divider></v-divider>
+      <div class = "bottom">
+        <slot name = "describe" class="item_describe"></slot>
+        </div>
+    </div>
+  </v-card>
 </template>
+
+<style>
+.item_top{
+  width: 100%;
+  display: flex;
+}
+.bottom{
+  border: 1px solid rgba(53, 73, 94,0.3);
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.item_title{
+  flex: 2;
+}
+.item_close {
+  flex : 1;
+  justify-content: flex-end;
+}
+.item {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
 
 <script>
 export default {
-  props: {
-    value: {
-      type: Boolean,
-      required: true,
-      default: false
-    },
-    title: {
-      type: String,
-      required: false
-    },
-    content: {
-      type: String,
-      require: false
-    },
-    img: {
-      type: String,
-      require: false
-    }
-  },
   methods: {
     set () {
       this.$emit('childMethod')
