@@ -3,7 +3,7 @@
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
-    <Navbar v-if="inputJudge"></Navbar>
+    <Navbar v-if="showNavbar"></Navbar>
   </div>
 </template>
 
