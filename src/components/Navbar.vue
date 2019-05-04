@@ -33,9 +33,11 @@
 
 <script>
 export default {
-  props: [
-    'bottomNav'
-  ],
+  data () {
+    return {
+      bottomNav: 0
+    }
+  },
   computed: {
     color () {
       switch (this.bottomNav) {
