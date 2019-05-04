@@ -1,6 +1,13 @@
 <template>
   <v-card height="100%">
-    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" absolute dark shift>
+    <v-bottom-nav
+      :active.sync="bottomNav"
+      :color="color"
+      :value="true"
+      absolute
+      dark
+      shift
+    >
       <v-btn dark>
         <span>任務</span>
         <v-icon>calendar_today</v-icon>
@@ -28,7 +35,7 @@
 export default {
   data () {
     return {
-      bottomNav: 3
+      bottomNav: 0
     }
   },
   computed: {
@@ -43,3 +50,4 @@ export default {
     }
   }
 }
+</script>
