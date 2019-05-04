@@ -1,6 +1,13 @@
 <template>
   <v-card height="100%">
-    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" absolute dark shift>
+    <v-bottom-nav
+      :active.sync="bottomNav"
+      :color="color"
+      :value="true"
+      absolute
+      dark
+      shift
+      >
       <v-btn dark>
         <span>任務</span>
         <v-icon>calendar_today</v-icon>
@@ -33,7 +40,7 @@ export default {
     color () {
       switch (this.bottomNav) {
         case 0: return 'blue-grey'
-        case 1: return 'teal'
+        case 1: return '#43A047'
         case 2: return 'brown'
         case 3: return 'indigo'
         default: return 'transparent'
