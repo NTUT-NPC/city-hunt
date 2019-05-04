@@ -1,32 +1,27 @@
 <template>
-    <v-bottom-nav
-      :active.sync="bottomNav"
-      :color="color"
-      :value="true"
-      absolute
-      dark
-      shift
-    >
+  <v-card height="100%">
+    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" absolute dark shift>
       <v-btn dark>
-        <span>Video</span>
-        <v-icon>ondemand_video</v-icon>
+        <span>任務</span>
+        <v-icon>calendar_today</v-icon>
       </v-btn>
 
       <v-btn dark>
-        <span>Music</span>
-        <v-icon>music_note</v-icon>
+        <span>回顧</span>
+        <v-icon>access_time</v-icon>
       </v-btn>
 
       <v-btn dark>
-        <span>Book</span>
-        <v-icon>book</v-icon>
+        <span>背包</span>
+        <v-icon>work_outline</v-icon>
       </v-btn>
 
       <v-btn dark>
-        <span>Image</span>
-        <v-icon>image</v-icon>
+        <span>角色</span>
+        <v-icon>people</v-icon>
       </v-btn>
     </v-bottom-nav>
+  </v-card>
 </template>
 
 <script>
