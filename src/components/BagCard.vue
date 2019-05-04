@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bag_container">
       <ul>
         <li v-for="(item,index) in items" :key = index>
           <v-dialog
@@ -21,8 +21,8 @@
                   <div slot="title" class="item_title">
                     <p>{{item.name}}</p>
                   </div>
-                  <div slot = "img">
-                    <img src="@/assets/logo.png" alt="">
+                  <div slot="img">
+                    <img :src= item.img>
                   </div>
                   <div slot = "describe" class="item_describe">
                     <p>{{item.describe}}</p>
@@ -35,19 +35,19 @@
 </template>
 
 <style>
-*{
-  font-family: "微軟正黑體"
+* {
+  font-family: "微軟正黑體";
 }
-.bag_items_img{
-  border-bottom: 3px solid rgba(1,1,1,0.3);
+.bag_items_img {
+  border-bottom: 3px solid rgba(1, 1, 1, 0.3);
 }
-.bag_item_name{
+.bag_item_name {
   font-size: 1.3rem;
 }
-.item_title{
+.item_title {
   font-size: 2rem;
 }
-.item_describe{
+.item_describe {
   font-size: 1.3rem;
 }
 .center {
@@ -83,18 +83,20 @@ export default {
   methods: {
     closeComponent (item) {
       item.show = false
+    },
+    imagePath (img) {
+      return require(img)
     }
   },
   data () {
     return {
-      publicPath: process.env.BASE_URL,
       items: [
-        { name: '劍', describe: 'this is 123 describe', img: '@/assets/logo.png', show: false },
-        { name: '雙刃', describe: 'this is 雙刃 long long long long long long long long long long long long long long describe', img: '@/assets/logo.png', show: false },
-        { name: '匕首', describe: 'this is 匕首 describe', img: '@/assets/logo.png', show: false },
-        { name: '弓箭', describe: 'this is 弓箭 describe', img: '@/assets/logo.png', show: false },
-        { name: '盾牌', describe: 'this is 盾牌 describe', img: '@/assets/logo.png', show: false },
-        { name: '法杖', describe: 'this is 法杖 describe', img: '@/assets/logo.png', show: false }
+        { name: '劍', describe: 'this is 123 describe', show: false },
+        { name: '雙刃', describe: 'this is 雙刃 long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long describe', show: false },
+        { name: '匕首', describe: 'this is 匕首 describe', img: require('@/assets/logo.png'), show: false },
+        { name: '弓箭', describe: 'this is 弓箭 describe', img: require('@/assets/logo.png'), show: false },
+        { name: '盾牌', describe: 'this is 盾牌 describe', img: require('@/assets/logo.png'), show: false },
+        { name: '法杖', describe: 'this is 法杖 describe', img: require('@/assets/logo.png'), show: false }
       ]
     }
   }
