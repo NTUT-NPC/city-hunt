@@ -3,7 +3,7 @@
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
-    <Navbar :bottomNav="bottomNav" v-if="true"></Navbar>
+    <Navbar v-if="inputJudge"></Navbar>
   </div>
 </template>
 
@@ -23,7 +23,6 @@ export default {
     return {
       component: 'Mission11',
       story: 1,
-      bottomNav: 0,
       inputJudge: false
     }
   },
@@ -49,14 +48,12 @@ export default {
   },
   computed: {
     showNavbar () {
-      console.log(this.story)
       return [3, 5, 7].includes(this.story - 1)
     }
   },
   methods: {
     nextStory () {
       this.story = this.getStory() + 1
-      console.log(this.story)
       this.component = `Mission1${this.story}`
     },
     getStory () {
@@ -71,7 +68,7 @@ export default {
       if (this.story === 0) {
         this.story = 1
         this.component = `Mission11`
-        alert('已經是上一頁囉！')
+        alert('已經是第一頁囉！')
       }
       history.pushState(null, null, document.URL)
     }
