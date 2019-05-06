@@ -20,6 +20,7 @@
 	},
 	"settings": {
 		"vetur.validation.template": true,
+		"vetur.format.defaultFormatter.js": "none",
 		"npm.packageManager": "npm",
 		"eslint.validate": [
 			{

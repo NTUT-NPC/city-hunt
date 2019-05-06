@@ -1,7 +1,15 @@
 import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
-import 'vuetify/src/stylus/app.styl'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import zhHant from 'vuetify/es5/locale/zh-Hant'
 
 Vue.use(Vuetify, {
-  iconfont: 'md'
+  options: {
+    customProperties: true
+  },
+  iconfont: 'md',
+  lang: {
+    locales: { zhHant },
+    current: 'zh-Hant'
+  }
 })

@@ -1,15 +1,7 @@
 <template>
-<div>
-<BagCard></BagCard>
-</div>
+  <v-app>
+    <v-content>
+      <v-container class="ma-0 pa-0" fluid fill-height></v-container>
+    </v-content>
+  </v-app>
 </template>
-
-<script>
-import BagCard from './components/BagCard.vue'
-
-export default {
-  components: {
-    BagCard
-  }
-}
-</script>
