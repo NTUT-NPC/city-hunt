@@ -5,6 +5,3 @@
     </v-content>
   </v-app>
 </template>
-
-<style lang="scss">
-</style>
