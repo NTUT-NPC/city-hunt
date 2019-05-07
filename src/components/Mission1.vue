@@ -1,5 +1,5 @@
 <template>
-  <div style="height: calc(100vh - 56px)">
+  <div :class="{full: full, navbar: !full}">
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
@@ -23,6 +23,7 @@ export default {
     return {
       component: 'Mission11',
       story: 1,
+      full: true,
       inputJudge: false
     }
   },
@@ -37,10 +38,22 @@ export default {
     Mission18,
     Navbar
   },
+  created () {
+    this.story = localStorage.story
+    this.component = `Mission1${this.story}`
+  },
   watch: {
     // 待更改
     story () {
       let story = this.story
+      let judge = [3, 5, 7].includes(this.story)
+
+      localStorage.story = story
+
+      if (judge === false) {
+        this.full = true
+      }
+
       if (story === 9) {
         this.$emit('Mission', '2')
       }
@@ -48,7 +61,7 @@ export default {
   },
   computed: {
     showNavbar () {
-      return [3, 5, 7].includes(this.story - 1)
+      return [3, 5, 7].includes(this.story)
     }
   },
   methods: {
@@ -62,15 +75,7 @@ export default {
       return parseInt(component)
     },
     goBack () {
-      this.story = this.getStory() - 1
-      this.component = `Mission1${this.story}`
-
-      if (this.story === 0) {
-        this.story = 1
-        this.component = `Mission11`
-        alert('已經是第一頁囉！')
-      }
-      history.pushState(null, null, document.URL)
+      alert('不能返回上一頁喔！')
     }
   },
   mounted () {
@@ -90,3 +95,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.full {
+  height: 100vh;
+}
+
+.navbar {
+  height: calc(100vh - 56px);
+}
+</style>
