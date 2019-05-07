@@ -54,8 +54,10 @@ export default {
         this.full = true
       }
 
-      if (story === 9) {
+      if (this.story === 9) {
+        localStorage.story = 1
         this.$emit('Mission', '2')
+        console.log('yes i do')
       }
     }
   },
