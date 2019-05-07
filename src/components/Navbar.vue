@@ -1,5 +1,4 @@
 <template>
-  <v-card height="100%">
     <v-bottom-nav
       :active.sync="bottomNav"
       :color="color"
@@ -28,7 +27,6 @@
         <v-icon>people</v-icon>
       </v-btn>
     </v-bottom-nav>
-  </v-card>
 </template>
 
 <script>
