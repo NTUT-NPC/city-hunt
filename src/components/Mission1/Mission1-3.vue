@@ -1,6 +1,6 @@
 <template>
-    <v-layout fill-height justify-center align-center column>
-        <h2 class="px-5 mt-5">前往國立臺灣博物館鐵道部尋找阿祖</h2>
+    <v-layout fill-height justify-center align-center column ref="image">
+        <h2 class="px-5 mt-5 text-xs-center">前往國立臺灣博物館鐵道部尋找阿祖<button @click="NextView">456</button></h2>
         <Locate class="mb-5" :target="location" @locate="inputJudge = $event"></Locate>
     </v-layout>
 </template>
@@ -15,7 +15,7 @@ export default {
         lat: 25.048874,
         lng: 121.510952
       },
-      inputJudage: true
+      inputJudge: true
     }
   },
   components: {
@@ -25,7 +25,12 @@ export default {
     this.$emit('inputJudge', true)
   },
   watch: {
-
+    inputJudge () {
+      if (this.inputJudge !== false) {
+        this.$emit('inputJudge', false)
+        this.$refs.image.click()
+      }
+    }
   }
 }
 </script>

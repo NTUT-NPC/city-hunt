@@ -8,7 +8,7 @@
 export default {
   data () {
     return {
-      imageURL: require('@/assets/Mission1/1-2-1.jpg'),
+      imageURL: require('@/assets/Mission1/1-1-1.jpg'),
       image: 1
     }
   },
@@ -22,7 +22,7 @@ export default {
         this.$emit('inputJudge', false)
         this.$refs.image.click()
       } else {
-        this.imageURL = require(`@/assets/Mission1/1-2-${this.image}.jpg`)
+        this.imageURL = require(`@/assets/Mission1/1-1-${this.image}.jpg`)
       }
     }
   }

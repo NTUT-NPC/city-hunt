@@ -38,11 +38,17 @@ export default {
     Mission18,
     Navbar
   },
+  created () {
+    this.story = localStorage.story
+    this.component = `Mission1${this.story}`
+  },
   watch: {
     // 待更改
     story () {
       let story = this.story
       let judge = [3, 5, 7].includes(this.story)
+
+      localStorage.story = story
 
       if (judge === false) {
         this.full = true
@@ -69,15 +75,7 @@ export default {
       return parseInt(component)
     },
     goBack () {
-      this.story = this.getStory() - 1
-      this.component = `Mission1${this.story}`
-
-      if (this.story === 0) {
-        this.story = 1
-        this.component = `Mission11`
-        alert('已經是第一頁囉！')
-      }
-      history.pushState(null, null, document.URL)
+      alert('不能返回上一頁喔！')
     }
   },
   mounted () {
