@@ -1,5 +1,5 @@
 <template>
-  <div style="height: calc(100vh - 56px)">
+  <div :class="{full: full, navbar: !full}">
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
@@ -23,6 +23,7 @@ export default {
     return {
       component: 'Mission11',
       story: 1,
+      full: true,
       inputJudge: false
     }
   },
@@ -41,6 +42,12 @@ export default {
     // 待更改
     story () {
       let story = this.story
+      let judge = [3, 5, 7].includes(this.story)
+
+      if (judge === false) {
+        this.full = true
+      }
+
       if (story === 9) {
         this.$emit('Mission', '2')
       }
@@ -48,7 +55,7 @@ export default {
   },
   computed: {
     showNavbar () {
-      return [3, 5, 7].includes(this.story - 1)
+      return [3, 5, 7].includes(this.story)
     }
   },
   methods: {
@@ -90,3 +97,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.full {
+  height: 100vh;
+}
+
+.navbar {
+  height: calc(100vh - 56px);
+}
+</style>
