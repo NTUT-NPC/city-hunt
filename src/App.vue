@@ -1,7 +1,15 @@
 <template>
   <v-app>
-    <v-content>
-      <v-container class="ma-0 pa-0" fluid fill-height></v-container>
-    </v-content>
+    <Flow></Flow>
   </v-app>
 </template>
+
+<script>
+import Flow from '@/components/Flow'
+
+export default {
+  components: {
+    Flow
+  }
+}
+</script>

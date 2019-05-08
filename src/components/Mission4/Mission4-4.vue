@@ -3,7 +3,7 @@
         <v-layout column justify-center fill-height>
             <h1 class="text-xs-center">解開盒子密碼</h1>
             <div class="text-xs-center">
-              <img src="@/assets/Mission4/4_4.png" style="width: 100%; max-width: 500px;">
+              <img src="@/assets/Mission4/close.png" style="width: 85%; max-width: 500px;">
             </div>
             <div class="text-xs-center">
               <v-text-field
@@ -18,7 +18,6 @@
                 <v-btn
                     color="brown lighten-2"
                     dark
-                    v-on="on"
                     large
                     round
                     @click="inputCheck"
@@ -62,7 +61,7 @@ export default {
   methods: {
     inputCheck () {
       // 等待更改
-      if (this.input === '') {
+      if (this.input === '1938') {
         this.$emit('inputJudge', false)
         this.$refs.image.click()
       } else {

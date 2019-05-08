@@ -18,7 +18,7 @@ export default {
   methods: {
     NextImage () {
       this.image += 1
-      if (this.image === 23) {
+      if (this.image >= 23) {
         this.$emit('inputJudge', false)
         this.$refs.image.click()
       } else {

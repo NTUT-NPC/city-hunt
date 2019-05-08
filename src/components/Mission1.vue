@@ -43,21 +43,19 @@ export default {
     this.component = `Mission1${this.story}`
   },
   watch: {
-    // 待更改
     story () {
       let story = this.story
       let judge = [3, 5, 7].includes(this.story)
 
-      localStorage.story = story
-
       if (judge === false) {
         this.full = true
       }
-
-      if (this.story === 9) {
+      
+      if (story >= 9) {
         localStorage.story = 1
         this.$emit('Mission', '2')
-        console.log('yes i do')
+      } else {
+        localStorage.story = story
       }
     }
   },

@@ -1,7 +1,7 @@
 <template>
-  <v-layout fill-height align-center justify-center wrap row>
-    <component  :is="componentId"></component>
-  </v-layout>
+  <div>
+    <component :is="componentId" @Mission="judgeId = $event"></component>
+  </div>
 </template>
 
 <script>
@@ -16,8 +16,11 @@ export default {
   data () {
     return {
       componentId: 'Mission1',
-      JudgeId: 1
+      judgeId: 1
     }
+  },
+  created () {
+    this.judgeId = localStorage.Mission
   },
   components: {
     Mission1,
@@ -26,6 +29,12 @@ export default {
     Mission4,
     Mission5,
     Mission6
+  },
+  watch: {
+    judgeId () {
+      this.componentId = `Mission${this.judgeId}`
+      localStorage.Mission = this.judgeId
+    }
   }
 }
 </script>
