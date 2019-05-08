@@ -50,7 +50,7 @@ export default {
       if (judge === false) {
         this.full = true
       }
-
+      
       if (story >= 9) {
         localStorage.story = 1
         this.$emit('Mission', '2')
