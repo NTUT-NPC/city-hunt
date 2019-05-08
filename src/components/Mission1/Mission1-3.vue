@@ -31,6 +31,12 @@ export default {
         this.$refs.image.click()
       }
     }
+  },
+  methods: {
+    NextView () {
+      this.$emit('inputJudge', false)
+      this.$refs.image.click()
+    }
   }
 }
 </script>

@@ -15,7 +15,6 @@
                 <v-btn
                     color="brown lighten-2"
                     dark
-                    v-on="on"
                     large
                     round
                     @click="inputCheck"
