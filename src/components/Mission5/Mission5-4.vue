@@ -1,85 +1,22 @@
 <template>
-    <div class="pa-4" style="height: calc(100vh - 56px);" ref="image">
-        <v-layout column justify-center fill-height>
-            <h1 class="text-xs-center">解開盒子密碼</h1>
-            <div class="text-xs-center">
-              <img src="@/assets/Mission5/5_4.png" style="width: 100%; max-width: 500px;">
-            </div>
-            <div class="text-xs-center">
-              <v-text-field
-                    v-model="input"
-                    :rules="inputRules"
-                    label="輸入欄"
-                    outline
-                    required
-                    @keyup.enter="inputCheck"
-                ></v-text-field>
-              <h2 :class="textColor">{{ inputJudge }}</h2>
-                <v-btn
-                    color="brown lighten-2"
-                    dark
-                    v-on="on"
-                    large
-                    round
-                    @click="inputCheck"
-                >
-                確認
-                </v-btn>
-            </div>
-        </v-layout>
-    </div>
+    <v-layout align-center justify-center @click.once="NextView" style="height: 100%" ref='image'>
+        <h1>
+            待放八卦盤
+        </h1>
+    </v-layout>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      dialog: false,
-      input: '',
-      inputJudge: '',
-      inputRules: [
-        v => !!v || '還沒有輸入任何東西喔！'
-      ]
-    }
-  },
   created () {
     this.$emit('inputJudge', true)
-  },
-  computed: {
-    textColor () {
-      if (this.inputJudge === '輸入錯誤！再重新試試看！') {
-        return 'textRed'
-      } else {
-        return 'textRed'
-      }
-    }
-  },
-  watch: {
-    input () {
-      this.inputJudge = ''
-    }
+    console.log('yes i do2')
   },
   methods: {
-    inputCheck () {
-      // 等待更改
-      if (this.input === '') {
-        this.$emit('inputJudge', false)
-        this.$refs.image.click()
-      } else {
-        this.inputJudge = '輸入錯誤！再重新試試看！'
-        this.$emit('inputJudge', true)
-      }
+    NextView () {
+      this.$emit('inputJudge', false)
+      this.$refs.image.click()
     }
   }
 }
 </script>
-
-<style scoped>
-.textRed {
-  color: red;
-}
-
-.textBlack {
-  color: black;
-}
-</style>
