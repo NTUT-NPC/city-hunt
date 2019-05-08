@@ -39,8 +39,10 @@ export default {
     Navbar
   },
   created () {
-    this.story = localStorage.story
-    this.component = `Mission1${this.story}`
+    if (!localStorage.story) {
+      this.story = localStorage.story
+      this.component = `Mission1${this.story}`
+    }
   },
   watch: {
     story () {

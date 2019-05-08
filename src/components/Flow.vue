@@ -20,7 +20,9 @@ export default {
     }
   },
   created () {
-    this.judgeId = localStorage.Mission
+    if (!localStorage.Mission) {
+      this.judgeId = localStorage.Mission
+    }
   },
   components: {
     Mission1,
