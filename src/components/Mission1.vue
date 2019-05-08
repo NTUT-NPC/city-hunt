@@ -43,7 +43,6 @@ export default {
     this.component = `Mission1${this.story}`
   },
   watch: {
-    // 待更改
     story () {
       let story = this.story
       let judge = [3, 5, 7].includes(this.story)
@@ -52,8 +51,8 @@ export default {
         this.full = true
       }
 
-      console.log(typeof (story))
-      if (story === 9) {
+      if (story >= 9) {
+        localStorage.story = 1
         this.$emit('Mission', '2')
       } else {
         localStorage.story = story
@@ -67,9 +66,6 @@ export default {
   },
   methods: {
     nextStory () {
-      if (this.story + 1 === 9) {
-
-      }
       this.story = this.getStory() + 1
       this.component = `Mission1${this.story}`
     },
