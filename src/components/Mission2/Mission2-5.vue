@@ -1,8 +1,8 @@
 <template>
     <div class="pa-4" style="height: calc(100vh - 56px)">
         <v-layout column justify-center fill-height>
-            <h1 class="text-xs-center">請輸入正確地址</h1>
-            <div class="mt-5 text-xs-center">
+            <h2 class="text-xs-center mb-4">請輸入正確地址</h2>
+            <div class="mt-3 text-xs-center">
                 <v-text-field
                     v-model="input"
                     :rules="inputRules"
@@ -15,7 +15,6 @@
                 <v-btn
                     color="brown lighten-2"
                     dark
-                    v-on="on"
                     large
                     round
                     @click="inputCheck"
@@ -23,8 +22,8 @@
                 確認
                 </v-btn>
             </div>
-            <div class="mt-5 text-xs-center">
-                <div class="mb-5">
+            <div class="text-xs-center mt-4">
+                <div>
                     <div class="text-xs-center">
                         <v-dialog
                         v-model="dialog"
@@ -68,7 +67,7 @@
                         </v-dialog>
                     </div>
                 </div>
-                <div class="mb-5">
+                <div>
                     <v-dialog
                         v-model="dialog"
                         width="300"
@@ -188,7 +187,7 @@ export default {
   },
   methods: {
     inputCheck () {
-      if (this.input === '永樂町通226號') {
+      if (this.input === '永樂町通一町目226號') {
         this.$emit('inputJudge', false)
       } else {
         this.inputJudge = '輸入錯誤！再重新試試看！'
