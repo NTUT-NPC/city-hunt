@@ -39,8 +39,10 @@ export default {
     Navbar
   },
   created () {
-    this.story = localStorage.story
-    this.component = `Mission1${this.story}`
+    if (!localStorage.story) {
+      this.story = localStorage.story
+      this.component = `Mission1${this.story}`
+    }
   },
   watch: {
     story () {
@@ -50,7 +52,7 @@ export default {
       if (judge === false) {
         this.full = true
       }
-      
+
       if (story >= 9) {
         localStorage.story = 1
         this.$emit('Mission', '2')
