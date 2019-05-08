@@ -1,26 +1,158 @@
 <template>
-    <div class="text-xs-center" ref="image">
-        <h1>選擇時刻</h1>
-        <v-btn
-            class="mt-4"
-            round
-            dark
-            large
-            color="teal"
-            @click="select(1)"
-        >
-            證據給兒子揭發真相
-        </v-btn>
-        <v-btn
-            class="mt-4"
-            color="teal"
-            large
-            round
-            dark
-            @click="select(2)"
-        >
-            說服兒子放下過去
-        </v-btn>
+    <div class="pa-4" style="height: calc(100vh - 56px)">
+        <v-layout column justify-center fill-height>
+            <h2 class="text-xs-center">請輸入地址</h2>
+            <div class="mt-3 text-xs-center">
+                <v-text-field
+                    v-model="input"
+                    :rules="inputRules"
+                    label="輸入欄"
+                    outline
+                    required
+                    @keyup.enter="inputCheck"
+                ></v-text-field>
+                <h2 :class="textColor">{{ inputJudge }}</h2>
+                <v-btn
+                    color="brown lighten-2"
+                    dark
+                    large
+                    round
+                    @click="inputCheck"
+                >
+                確認
+                </v-btn>
+            </div>
+            <div class="text-xs-center mt-4">
+                <div>
+                    <div class="text-xs-center">
+                        <v-dialog
+                        v-model="dialog"
+                        width="300"
+                        >
+                        <template v-slot:activator="{ on }">
+                            <v-btn
+                            color="red lighten-2"
+                            dark
+                            v-on="on"
+                            large
+                            round
+                            >
+                            初級提示
+                            </v-btn>
+                        </template>
+
+                        <v-card>
+                            <v-card-title
+                            class="headline lighten-2"
+                            primary-title
+                            >
+                            初級提示
+                            </v-card-title>
+
+                            <v-card-text>
+                            待新增 img
+                            </v-card-text>
+
+                            <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="primary"
+                                flat
+                                @click="dialog = false"
+                            >
+                                back
+                            </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                    </div>
+                </div>
+                <div>
+                    <v-dialog
+                        v-model="dialog"
+                        width="300"
+                        >
+                        <template v-slot:activator="{ on }">
+                            <v-btn
+                            color="red lighten-2"
+                            dark
+                            v-on="on"
+                            large
+                            round
+                            >
+                            中級提示
+                            </v-btn>
+                        </template>
+
+                        <v-card>
+                            <v-card-title
+                            class="headline lighten-2"
+                            primary-title
+                            >
+                            中級提示
+                            </v-card-title>
+
+                            <v-card-text>
+                            待新增 img
+                            </v-card-text>
+
+                            <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="primary"
+                                flat
+                                @click="dialog = false"
+                            >
+                                back
+                            </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                </div>
+                <div>
+                    <v-dialog
+                        v-model="dialog"
+                        width="300"
+                        >
+                        <template v-slot:activator="{ on }">
+                            <v-btn
+                            color="red lighten-2"
+                            dark
+                            v-on="on"
+                            round
+                            large
+                            >
+                            高級提示
+                            </v-btn>
+                        </template>
+
+                        <v-card>
+                            <v-card-title
+                            class="headline lighten-2"
+                            primary-title
+                            >
+                            高級提示
+                            </v-card-title>
+
+                            <v-card-text>
+                            待新增 img
+                            </v-card-text>
+
+                            <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="primary"
+                                flat
+                                @click="dialog = false"
+                            >
+                                back
+                            </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                </div>
+            </div>
+        </v-layout>
     </div>
 </template>
 
@@ -28,19 +160,50 @@
 export default {
   data () {
     return {
-      selectEnding: 0
+      dialog: false,
+      input: '',
+      inputJudge: '',
+      inputRules: [
+        v => !!v || '還沒有輸入任何東西喔！'
+      ]
     }
   },
   created () {
     this.$emit('inputJudge', true)
   },
+  computed: {
+    textColor () {
+      if (this.inputJudge === '輸入錯誤！再重新試試看！') {
+        return 'textRed'
+      } else {
+        return 'textRed'
+      }
+    }
+  },
+  watch: {
+    input () {
+      this.inputJudge = ''
+    }
+  },
   methods: {
-    select (variable) {
-      this.selectEnding = variable
-      this.$store.dispatch('endingSelect', variable)
-      this.$emit('inputJudge', false)
-      this.$refs.image.click()
+    inputCheck () {
+      if (this.input === '台北霞海城隍廟' || this.input === '臺北霞海城隍廟') {
+        this.$emit('inputJudge', false)
+      } else {
+        this.inputJudge = '輸入錯誤！再重新試試看！'
+        this.$emit('inputJudge', true)
+      }
     }
   }
 }
 </script>
+
+<style scoped>
+.textRed {
+  color: red;
+}
+
+.textBlack {
+  color: black;
+}
+</style>

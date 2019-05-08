@@ -1,5 +1,5 @@
 <template>
-  <div style="height: calc(100vh - 56px)">
+  <div :class="{full: full, navbar: !full}">
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
@@ -22,9 +22,7 @@ import Mission411 from '@/components/Mission4/Mission4-11'
 import Mission412 from '@/components/Mission4/Mission4-12'
 import Mission413 from '@/components/Mission4/Mission4-13'
 import Mission414 from '@/components/Mission4/Mission4-14'
-import Mission415 from '@/components/Mission4/Mission4-15'
-import Mission416 from '@/components/Mission4/Mission4-16'
-import Mission417 from '@/components/Mission4/Mission4-17'
+
 import Navbar from '@/components/Navbar'
 
 export default {
@@ -32,6 +30,7 @@ export default {
     return {
       component: 'Mission41',
       story: 1,
+      full: true,
       inputJudge: false
     }
   },
@@ -50,29 +49,39 @@ export default {
     Mission412,
     Mission413,
     Mission414,
-    Mission415,
-    Mission416,
-    Mission417,
     Navbar
   },
+  created () {
+    this.story = localStorage.story
+    this.component = `Mission4${this.story}`
+  },
   watch: {
-    // 待更改
     story () {
       let story = this.story
-      if (story === 18) {
+      let judge = [2, 4].includes(parseInt(this.story))
+
+      if (judge === false) {
+        this.full = true
+      }
+
+      if (story >= 15) {
+        localStorage.story = 1
         this.$emit('Mission', '5')
+      } else {
+        localStorage.story = story
       }
     }
   },
   computed: {
     showNavbar () {
-      return [2, 4, 15].includes(this.story)
+      return [2, 4].includes(parseInt(this.story))
     }
   },
   methods: {
     nextStory () {
       this.story = this.getStory() + 1
       this.component = `Mission4${this.story}`
+      console.log('yes i do' + this.story)
     },
     getStory () {
       let component = this.component
@@ -80,15 +89,7 @@ export default {
       return parseInt(component)
     },
     goBack () {
-      this.story = this.getStory() - 1
-      this.component = `Mission4${this.story}`
-
-      if (this.story === 0 || this.story === 13) {
-        this.story = 1
-        this.component = `Mission41`
-        alert('不能再返回囉！')
-      }
-      history.pushState(null, null, document.URL)
+      alert('不能返回上一頁喔！')
     }
   },
   mounted () {
@@ -108,3 +109,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.full {
+  height: 100vh;
+}
+
+.navbar {
+  height: calc(100vh - 56px);
+}
+</style>
