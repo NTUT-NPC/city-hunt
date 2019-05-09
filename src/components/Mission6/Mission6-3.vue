@@ -1,3 +1,7 @@
 <template>
-    <v-img :src="require('@/assets/Mission6/6_3.png')" width="100%" max-width="600px"></v-img>
+    <v-layout fill-height align-center justify-center @click="NextView" style="height: 100%" ref='image'>
+        <h1>
+            END
+        </h1>
+    </v-layout>
 </template>
