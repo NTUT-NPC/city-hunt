@@ -1,5 +1,5 @@
 <template>
-  <div style="height: calc(100vh - 56px)">
+  <div class="full">
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
@@ -24,12 +24,18 @@ export default {
     Mission62,
     Mission63
   },
+  created () {
+    this.story = localStorage.story
+    this.component = `Mission6${this.story}`
+  },
   watch: {
-    // 待更改
     story () {
       let story = this.story
-      if (story === 4) {
-        this.$emit('Mission', '7')
+
+      if (story >= 3) {
+        this.inputJudge = true
+      } else {
+        localStorage.story = story
       }
     }
   },
@@ -44,15 +50,7 @@ export default {
       return parseInt(component)
     },
     goBack () {
-      this.story = this.getStory() - 1
-      this.component = `Mission6${this.story}`
-
-      if (this.story === 0) {
-        this.story = 1
-        this.component = `Mission61`
-        alert('已經是第一頁囉！')
-      }
-      history.pushState(null, null, document.URL)
+      alert('不能返回上一頁喔！')
     }
   },
   mounted () {
@@ -72,3 +70,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.full {
+  height: 100vh;
+}
+</style>

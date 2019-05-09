@@ -1,8 +1,9 @@
 <template>
-    <div>
-      <!-- <v-img v-if="showImg" :src="require('@/assets/Mission6/6_2_1.png')" width="100%" max-width="600px"></v-img>
-      <v-img v-if="!showImg" :src="require('@/assets/Mission6/6_2_2.png')" width="100%" max-width="600px"></v-img> -->
-    </div>
+    <v-layout fill-height align-center justify-center @click="NextView" style="height: 100%" ref='image'>
+        <h1>
+            待放 6-2 照片
+        </h1>
+    </v-layout>
 </template>
 
 <script>
