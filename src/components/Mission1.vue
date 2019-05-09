@@ -1,5 +1,5 @@
 <template>
-  <div :class="{full: full, navbar: !full}">
+  <div :class="{full: !showNavbar, navbar: showNavbar}">
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
@@ -21,9 +21,7 @@ import Navbar from '@/components/Navbar'
 export default {
   data () {
     return {
-      component: 'Mission11',
       story: 1,
-      full: true,
       inputJudge: false
     }
   },
@@ -38,49 +36,8 @@ export default {
     Mission18,
     Navbar
   },
-  created () {
-    if (!localStorage.story) {
-      this.story = localStorage.story
-      this.component = `Mission1${this.story}`
-    }
-  },
-  watch: {
-    story () {
-      let story = this.story
-      let judge = [3, 5, 7].includes(this.story)
-
-      if (judge === false) {
-        this.full = true
-      }
-
-      if (story >= 9) {
-        localStorage.story = 1
-        this.$emit('Mission', '2')
-      } else {
-        localStorage.story = story
-      }
-    }
-  },
-  computed: {
-    showNavbar () {
-      return [3, 5, 7].includes(this.story)
-    }
-  },
-  methods: {
-    nextStory () {
-      this.story = this.getStory() + 1
-      this.component = `Mission1${this.story}`
-    },
-    getStory () {
-      let component = this.component
-      component = component.split('Mission1')[1]
-      return parseInt(component)
-    },
-    goBack () {
-      alert('不能返回上一頁喔！')
-    }
-  },
   mounted () {
+    this.story = localStorage.story || 1
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
       window.addEventListener('popstate', this.goBack, false)
@@ -90,6 +47,28 @@ export default {
 
     window.onbeforeunload = function (event) {
       return '可能有數據沒有保存，確定要離開嗎？'
+    }
+  },
+  computed: {
+    showNavbar () {
+      return [3, 5, 7].includes(this.story)
+    },
+    component () {
+      return `Mission1${this.story}`
+    }
+  },
+  methods: {
+    nextStory () {
+      if (this.story === 8) {
+        localStorage.story = 1
+        this.$emit('Mission', '2')
+      } else {
+        this.story += 1
+        localStorage.story = this.story
+      }
+    },
+    goBack () {
+      alert('不能返回上一頁喔！')
     }
   },
   destroyed () {
