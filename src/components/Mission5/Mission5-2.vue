@@ -1,6 +1,6 @@
 <template>
     <v-layout fill-height justify-center align-center column ref="image">
-        <h2 class="px-5 mt-5 text-xs-center">前往城隍廟廣場<button @click="NextView">456</button></h2>
+        <h2 class="px-5 mt-5 text-xs-center">前往城隍廟廣場</h2>
         <Locate class="mb-5" :target="location" @locate="inputJudge = $event"></Locate>
     </v-layout>
 </template>
@@ -12,8 +12,8 @@ export default {
   data () {
     return {
       location: {
-        lat: 25.055682,
-        lng: 121.510136
+        lat: 25.055613,
+        lng: 121.510141
       },
       inputJudge: true
     }
@@ -30,12 +30,6 @@ export default {
         this.$emit('inputJudge', false)
         this.$refs.image.click()
       }
-    }
-  },
-  methods: {
-    NextView () {
-      this.$emit('inputJudge', false)
-      this.$refs.image.click()
     }
   }
 }

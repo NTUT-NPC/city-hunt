@@ -1,6 +1,6 @@
 <template>
     <v-layout fill-height justify-center align-center column ref="image">
-        <h2 class="px-5 mt-5 text-xs-center">前往碼頭，在帆船前的樹下尋找密碼箱<button @click="NextView">456</button></h2>
+        <h2 class="px-5 mt-5 text-xs-center">前往碼頭，在帆船前的樹下尋找密碼箱</h2>
         <Locate class="mb-5" :target="location" @locate="inputJudge = $event"></Locate>
     </v-layout>
 </template>
@@ -30,12 +30,6 @@ export default {
         this.$emit('inputJudge', false)
         this.$refs.image.click()
       }
-    }
-  },
-  methods: {
-    NextView () {
-      this.$emit('inputJudge', false)
-      this.$refs.image.click()
     }
   }
 }
