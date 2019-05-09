@@ -6,8 +6,6 @@
 
 <script>
 export default {
-  data () {
-  },
   created () {
     this.$emit('inputJudge', true)
   },
