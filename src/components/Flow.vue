@@ -15,13 +15,16 @@ import Mission6 from '@/components/Mission6'
 export default {
   data () {
     return {
-      componentId: 'Mission1',
       judgeId: 1
     }
   },
   created () {
-    if (!localStorage.Mission) {
-      this.judgeId = localStorage.Mission
+    this.judgeId = localStorage.Mission || 1
+  },
+  computed: {
+    componentId () {
+      localStorage.Mission = this.judgeId
+      return `Mission${this.judgeId}`
     }
   },
   components: {
@@ -31,12 +34,6 @@ export default {
     Mission4,
     Mission5,
     Mission6
-  },
-  watch: {
-    judgeId () {
-      this.componentId = `Mission${this.judgeId}`
-      localStorage.Mission = this.judgeId
-    }
   }
 }
 </script>
