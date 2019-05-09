@@ -1,3 +1,3 @@
 <template>
-    <v-img :src="require('@/assets/Mission3/3_1.png')" width="100%" max-width="600px"></v-img>
+    <v-img :src="require('@/assets/Mission3/3.jpg')" width="100%" max-width="600px"></v-img>
 </template>
