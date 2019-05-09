@@ -32,9 +32,8 @@ export default {
     story () {
       let story = this.story
 
-      if (story >= 4) {
-        localStorage.story = 1
-        this.$emit('Mission', '7')
+      if (story >= 3) {
+        this.inputJudge = true
       } else {
         localStorage.story = story
       }
