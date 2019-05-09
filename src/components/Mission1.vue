@@ -66,10 +66,13 @@ export default {
         this.story += 1
         localStorage.story = this.story
       }
+    },
+    goBack () {
+      alert('不能返回上一頁喔！')
     }
   },
   destroyed () {
-    window.removeEventListener('popstate', () => alert('不能返回上一頁喔！'), false)
+    window.removeEventListener('popstate', this.goBack, false)
   }
 }
 </script>
