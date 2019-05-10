@@ -1,9 +1,9 @@
 <template>
-  <div :class="{full: full, navbar: !full}">
+  <div :class="{full: !showNavbar, navbar: showNavbar}">
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
-    <Navbar v-if="showNavbar"></Navbar>
+    <Navbar v-if="showNavbar" @nav="nav = $event"></Navbar>
   </div>
 </template>
 
@@ -13,14 +13,14 @@ import Mission32 from '@/components/Mission3/Mission3-2'
 import Mission33 from '@/components/Mission3/Mission3-3'
 import Mission34 from '@/components/Mission3/Mission3-4'
 import Mission35 from '@/components/Mission3/Mission3-5'
+import BagCard from '@/components/BagCard'
 import Navbar from '@/components/Navbar'
 
 export default {
   data () {
     return {
-      component: 'Mission31',
       story: 1,
-      full: true,
+      nav: 0,
       inputJudge: false
     }
   },
@@ -30,49 +30,12 @@ export default {
     Mission33,
     Mission34,
     Mission35,
+    BagCard,
     Navbar
   },
-  created () {
-    this.story = localStorage.story
-    this.component = `Mission3${this.story}`
-  },
-  watch: {
-    story () {
-      let story = this.story
-      let judge = [2, 5].includes(this.story)
-
-      if (judge === false) {
-        this.full = true
-      }
-
-      if (story >= 6) {
-        localStorage.story = 1
-        this.$emit('Mission', '4')
-      } else {
-        localStorage.story = story
-      }
-    }
-  },
-  computed: {
-    showNavbar () {
-      return [2, 5].includes(this.story)
-    }
-  },
-  methods: {
-    nextStory () {
-      this.story = this.getStory() + 1
-      this.component = `Mission3${this.story}`
-    },
-    getStory () {
-      let component = this.component
-      component = component.split('Mission3')[1]
-      return parseInt(component)
-    },
-    goBack () {
-      alert('不能返回上一頁喔！')
-    }
-  },
   mounted () {
+    this.story = localStorage.story || 1
+
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
       window.addEventListener('popstate', this.goBack, false)
@@ -82,6 +45,32 @@ export default {
 
     window.onbeforeunload = function (event) {
       return '可能有數據沒有保存，確定要離開嗎？'
+    }
+  },
+  computed: {
+    showNavbar () {
+      return [2, 5].includes(this.story)
+    },
+    component () {
+      if (this.nav === 0) {
+        return `Mission3${this.story}`
+      } else {
+        return 'BagCard'
+      }
+    }
+  },
+  methods: {
+    nextStory () {
+      if (this.story === 5) {
+        localStorage.story = 1
+        this.$emit('Mission', '4')
+      } else {
+        this.story += 1
+        localStorage.story = +this.story
+      }
+    },
+    goBack () {
+      alert('不能返回上一頁喔！')
     }
   },
   destroyed () {

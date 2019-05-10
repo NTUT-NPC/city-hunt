@@ -1,9 +1,9 @@
 <template>
-  <div :class="{full: full, navbar: !full}">
+  <div :class="{full: !showNavbar, navbar: showNavbar}">
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
-    <Navbar v-if="showNavbar"></Navbar>
+    <Navbar v-if="showNavbar" @nav="nav = $event"></Navbar>
   </div>
 </template>
 
@@ -22,15 +22,14 @@ import Mission411 from '@/components/Mission4/Mission4-11'
 import Mission412 from '@/components/Mission4/Mission4-12'
 import Mission413 from '@/components/Mission4/Mission4-13'
 import Mission414 from '@/components/Mission4/Mission4-14'
-
+import BagCard from '@/components/BagCard'
 import Navbar from '@/components/Navbar'
 
 export default {
   data () {
     return {
-      component: 'Mission41',
       story: 1,
-      full: true,
+      nav: 0,
       inputJudge: false
     }
   },
@@ -49,50 +48,12 @@ export default {
     Mission412,
     Mission413,
     Mission414,
+    BagCard,
     Navbar
   },
-  created () {
-    this.story = localStorage.story
-    this.component = `Mission4${this.story}`
-  },
-  watch: {
-    story () {
-      let story = this.story
-      let judge = [2, 4].includes(parseInt(this.story))
-
-      if (judge === false) {
-        this.full = true
-      }
-
-      if (story >= 15) {
-        localStorage.story = 1
-        this.$emit('Mission', '5')
-      } else {
-        localStorage.story = story
-      }
-    }
-  },
-  computed: {
-    showNavbar () {
-      return [2, 4].includes(parseInt(this.story))
-    }
-  },
-  methods: {
-    nextStory () {
-      this.story = this.getStory() + 1
-      this.component = `Mission4${this.story}`
-      console.log('yes i do' + this.story)
-    },
-    getStory () {
-      let component = this.component
-      component = component.split('Mission4')[1]
-      return parseInt(component)
-    },
-    goBack () {
-      alert('不能返回上一頁喔！')
-    }
-  },
   mounted () {
+    this.story = localStorage.story || 1
+
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
       window.addEventListener('popstate', this.goBack, false)
@@ -102,6 +63,32 @@ export default {
 
     window.onbeforeunload = function (event) {
       return '可能有數據沒有保存，確定要離開嗎？'
+    }
+  },
+  computed: {
+    showNavbar () {
+      return [2, 4].includes(parseInt(this.story))
+    },
+    component () {
+      if (this.nav === 0) {
+        return `Mission4${this.story}`
+      } else {
+        return 'BagCard'
+      }
+    }
+  },
+  methods: {
+    nextStory () {
+      if (this.story === 14) {
+        localStorage.story = 1
+        this.$emit('Mission', '5')
+      } else {
+        this.story += 1
+        localStorage.story = +this.story
+      }
+    },
+    goBack () {
+      alert('不能返回上一頁喔！')
     }
   },
   destroyed () {
