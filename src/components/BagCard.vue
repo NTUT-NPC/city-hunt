@@ -9,6 +9,7 @@
             <template v-slot:activator="{ on }">
               <div class="center">
               <img :src=item.img
+                width="100%"
                 class = "bag_items_img"
                 v-on="on" >
               <div class="bag_item_name">
