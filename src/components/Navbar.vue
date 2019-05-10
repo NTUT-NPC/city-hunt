@@ -3,7 +3,7 @@
       :active.sync="bottomNav"
       :color="color"
       :value="true"
-      absolute
+      fixed
       dark
       shift
     >

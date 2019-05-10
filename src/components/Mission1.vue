@@ -91,6 +91,6 @@ export default {
 }
 
 .navbar {
-  height: calc(100vh - 56px);
+  margin-bottom: 60px;
 }
 </style>
