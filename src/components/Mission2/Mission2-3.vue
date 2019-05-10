@@ -1,7 +1,7 @@
 <template>
     <v-layout fill-height justify-center align-center column ref="image">
         <h2 class="px-5 mt-5 text-xs-center">前往圓環尋找信</h2>
-        <Locate class="mb-5" :target="location" @locate="inputJudge = $event"></Locate>
+        <Locate class="mb-5" :target="location" @locate="$event && $emit('inputJudge', false)"></Locate>
     </v-layout>
 </template>
 
