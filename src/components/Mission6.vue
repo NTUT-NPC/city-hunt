@@ -18,6 +18,11 @@ export default {
       inputJudge: false
     }
   },
+  computed: {
+    component () {
+      return `Mission6${this.story}`
+    }
+  },
   components: {
     Mission61,
     Mission62,
