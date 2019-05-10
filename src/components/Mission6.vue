@@ -14,7 +14,6 @@ import Mission63 from '@/components/Mission6/Mission6-3'
 export default {
   data () {
     return {
-      component: 'Mission61',
       story: 1,
       inputJudge: false
     }
@@ -24,36 +23,20 @@ export default {
     Mission62,
     Mission63
   },
-  created () {
-    this.story = localStorage.story
-    this.component = `Mission6${this.story}`
-  },
-  watch: {
-    story () {
-      let story = this.story
-
-      if (story >= 3) {
-        this.inputJudge = true
+  methods: {
+    nextStory () {
+      if (+this.story === 5) {
+        localStorage.story = +1
+        this.$emit('Mission', '6')
       } else {
-        localStorage.story = story
+        this.story = +this.story + 1
+        localStorage.story = +this.story
       }
     }
   },
-  methods: {
-    nextStory () {
-      this.story = this.getStory() + 1
-      this.component = `Mission6${this.story}`
-    },
-    getStory () {
-      let component = this.component
-      component = component.split('Mission6')[1]
-      return parseInt(component)
-    },
-    goBack () {
-      alert('不能返回上一頁喔！')
-    }
-  },
   mounted () {
+    this.story = localStorage.story || 1
+
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
       window.addEventListener('popstate', this.goBack, false)
