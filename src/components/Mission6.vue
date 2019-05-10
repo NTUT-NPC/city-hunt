@@ -32,7 +32,7 @@ export default {
     nextStory () {
       if (+this.story === 5) {
         localStorage.story = +1
-        this.$emit('Mission', '6')
+        this.$emit('Mission', '7')
       } else {
         this.story = +this.story + 1
         localStorage.story = +this.story
