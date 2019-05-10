@@ -64,7 +64,7 @@ export default {
         this.$emit('Mission', '2')
       } else {
         this.story += 1
-        localStorage.story = this.story
+        localStorage.story = +this.story
       }
     },
     goBack () {
