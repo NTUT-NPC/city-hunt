@@ -3,7 +3,7 @@
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
-    <Navbar v-if="showNavbar"></Navbar>
+    <Navbar v-if="showNavbar" @nav="nav = $event"></Navbar>
   </div>
 </template>
 
@@ -16,12 +16,14 @@ import Mission15 from '@/components/Mission1/Mission1-5'
 import Mission16 from '@/components/Mission1/Mission1-6'
 import Mission17 from '@/components/Mission1/Mission1-7'
 import Mission18 from '@/components/Mission1/Mission1-8'
+import BagCard from '@/components/BagCard'
 import Navbar from '@/components/Navbar'
 
 export default {
   data () {
     return {
       story: 1,
+      nav: 0,
       inputJudge: false
     }
   },
@@ -34,10 +36,12 @@ export default {
     Mission16,
     Mission17,
     Mission18,
+    BagCard,
     Navbar
   },
   mounted () {
     this.story = localStorage.story || 1
+
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
       window.addEventListener('popstate', this.goBack, false)
@@ -54,7 +58,11 @@ export default {
       return [3, 5, 7].includes(this.story)
     },
     component () {
-      return `Mission1${this.story}`
+      if (this.nav === 0) {
+        return `Mission1${this.story}`
+      } else {
+        return 'BagCard'
+      }
     }
   },
   methods: {
@@ -64,7 +72,7 @@ export default {
         this.$emit('Mission', '2')
       } else {
         this.story += 1
-        localStorage.story = this.story
+        localStorage.story = +this.story
       }
     },
     goBack () {
