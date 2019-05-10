@@ -63,11 +63,11 @@ export default {
   },
   methods: {
     nextStory () {
-      if (+this.story === 6) {
-        localStorage.story = +1
+      if (this.story === 6) {
+        localStorage.story = 1
         this.$emit('Mission', '3')
       } else {
-        this.story = +this.story + 1
+        this.story += 1
         localStorage.story = +this.story
       }
     },
