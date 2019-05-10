@@ -1,8 +1,6 @@
 <template>
     <v-layout fill-height align-center justify-center @click="NextView" style="height: 100%" ref='image'>
-        <h1>
-            待放私信
-        </h1>
+        <img @click="NextImage" src="@/assets/Mission4/私信.jpg" style="height: 100%" />
     </v-layout>
 </template>
 
