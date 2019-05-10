@@ -34,6 +34,11 @@ export default {
         default: return 'transparent'
       }
     }
+  },
+  watch: {
+    bottomNav () {
+      this.$emit('nav', this.bottomNav)
+    }
   }
 }
 </script>
