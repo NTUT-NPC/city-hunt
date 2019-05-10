@@ -8,7 +8,7 @@
 export default {
   data () {
     return {
-      imageURL: require('@/assets/Mission4/4-2-5.jpg'),
+      imageURL: require('@/assets/Mission4/4-2-6.jpg'),
       image: 5
     }
   },
@@ -18,7 +18,7 @@ export default {
   methods: {
     NextImage () {
       this.image += 1
-      if (this.image >= 17) {
+      if (this.image >= 18) {
         this.$emit('inputJudge', false)
         this.$refs.image.click()
       } else {

@@ -1,8 +1,6 @@
 <template>
     <v-layout fill-height align-center justify-center @click="NextView" style="height: 100%" ref='image'>
-        <h1>
-            待放自白
-        </h1>
+        <img @click="NextImage" src="@/assets/Mission4/自白.jpg" style="height: 100%" />
     </v-layout>
 </template>
 
