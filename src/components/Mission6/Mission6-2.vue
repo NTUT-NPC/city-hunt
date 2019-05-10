@@ -1,5 +1,5 @@
 <template>
-    <v-layout fill-height align-center justify-center @click="NextView" style="height: 100%" ref='image'>
+    <v-layout fill-height align-center justify-center style="height: 100%" ref='image'>
         <h1>
             待放 6-2 照片
         </h1>
