@@ -57,7 +57,7 @@ export default {
         case STATUS.CHECKED_WRONG:
           return '你確定是這裡？'
         case STATUS.CHECKED_CORRECT:
-          return '別懷疑！你到了正確的地方！'
+          return '別懷疑！你到了正確的地方，請點擊頁面！'
         default:
           return '請檢查 GPS 相關設定！'
       }
@@ -71,7 +71,7 @@ export default {
         const locationB = this.target
         const distance = getDistance({ locationA, locationB })
         this.status = distance <= 100 ? STATUS.CHECKED_CORRECT : STATUS.CHECKED_WRONG
-        this.$emit('locate', distance <= 100)
+        this.$emit('locate', distance <= 50)
       } catch (err) {
         this.status = STATUS.ERROR
         this.$emit('locate', false)
