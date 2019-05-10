@@ -50,7 +50,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">與數學有關</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -93,7 +93,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">間隔為2</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -135,7 +135,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">等差數列</h2>
                             </v-card-text>
 
                             <v-card-actions>

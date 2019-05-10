@@ -50,7 +50,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">在碼頭找到那幅畫的不同</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -93,7 +93,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">廟的部分</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -135,7 +135,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">台北霞海城隍廟</h2>
                             </v-card-text>
 
                             <v-card-actions>

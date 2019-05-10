@@ -50,7 +50,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">問題出在承恩身上</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -93,7 +93,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">先找出杓子在哪</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -135,7 +135,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                            待新增 img
+                              <h2 class="text-xs-center">台北城歪了13度</h2>
                             </v-card-text>
 
                             <v-card-actions>
