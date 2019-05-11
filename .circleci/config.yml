@@ -19,28 +19,12 @@ jobs:
       - run:
           name: lint
           command: npm run lint
-  deploy:
-    docker:
-      - image: circleci/node:10.10.0
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm ci
       - run:
           name: Deploy Master to GitHub
-          command: |
-            git config user.email "yaoandy107@gmail.com"
-            git config user.name "yaoandy107"
-            bash ./deploy.sh
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
           filters:
             branches:
               only: master
+          command: |
+            git config user.email "yaoandy107@gmail.com"
+            git config user.name "yaoandy107"
+            ./deploy.sh
