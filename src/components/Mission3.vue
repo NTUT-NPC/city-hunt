@@ -34,7 +34,7 @@ export default {
     Navbar
   },
   mounted () {
-    this.story = localStorage.story || 1
+    this.story = +localStorage.story || 1
 
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     showNavbar () {
-      return [2, 5].includes(this.story)
+      return [2, 4, 5].includes(this.story)
     },
     component () {
       if (this.nav === 0) {
