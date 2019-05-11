@@ -20,8 +20,8 @@ jobs:
           name: lint
           command: npm run lint
   deploy:
-    machine:
-        enabled: true
+    docker:
+      - image: circleci/node:10.10.0
     steps:
       - checkout
       - run:
