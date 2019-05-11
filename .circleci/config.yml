@@ -25,6 +25,6 @@ jobs:
             branches:
               only: master
           command: |
-            git config user.email "yaoandy107@gmail.com"
-            git config user.name "yaoandy107"
+            git config --global user.email "yaoandy107@gmail.com"
+            git config --global user.name "yaoandy107"
             ./deploy.sh
