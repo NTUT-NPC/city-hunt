@@ -108,13 +108,13 @@ export default {
         { name: 'ch4第一部份_線索2', describe: 'this is 盾牌 describe', img: require('@/assets/item/ch4第一部份_線索2.jpg'), show: false },
         { name: 'ch4第二部分線索-水門照', describe: 'this is 匕首 describe', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), show: false },
         // { name: 'ch5八卦謎題-法器', describe: 'this is 弓箭 describe', img: require('@/assets/item/ch5八卦謎題-法器.png'), show: false },
-        // { name: 'ch5八卦謎題線索-旅人筆記', describe: 'this is 盾牌 describe', img: require('@/assets/item/ch5八卦謎題線索-旅人筆記.png'), show: false },
-        { name: '信壓-01.png', describe: 'this is 匕首 describe', img: require('@/assets/item/信壓-01.png'), show: false },
-        { name: '信封.png', describe: 'this is 弓箭 describe', img: require('@/assets/item/信封.png'), show: false },
-        { name: '實體道具MAP1', describe: 'this is 盾牌 describe', img: require('@/assets/item/實體道具MAP1.png'), show: false },
-        { name: '實體道具七星山由來', describe: 'this is 匕首 describe', img: require('@/assets/item/實體道具七星山由來.png'), show: false },
-        { name: '實體道具勺勺', describe: 'this is 法杖 describe', img: require('@/assets/item/實體道具勺勺.jpg'), show: false },
-        { name: '實體道具吃的跟勺', describe: 'this is 匕首 describe', img: require('@/assets/item/實體道具吃的跟勺.png'), show: false }
+        { name: 'ch5八卦謎題線索-旅人筆記', describe: 'this is 盾牌 describe', img: require('@/assets/item/ch5八卦謎題線索-旅人筆記.png'), show: false }
+        // { name: '信壓-01.png', describe: 'this is 匕首 describe', img: require('@/assets/item/信壓-01.png'), show: false },
+        // { name: '信封.png', describe: 'this is 弓箭 describe', img: require('@/assets/item/信封.png'), show: false },
+        // { name: '實體道具MAP1', describe: 'this is 盾牌 describe', img: require('@/assets/item/實體道具MAP1.png'), show: false },
+        // { name: '實體道具七星山由來', describe: 'this is 匕首 describe', img: require('@/assets/item/實體道具七星山由來.png'), show: false },
+        // { name: '實體道具勺勺', describe: 'this is 法杖 describe', img: require('@/assets/item/實體道具勺勺.jpg'), show: false },
+        // { name: '實體道具吃的跟勺', describe: 'this is 匕首 describe', img: require('@/assets/item/實體道具吃的跟勺.png'), show: false }
 
       ]
     }
