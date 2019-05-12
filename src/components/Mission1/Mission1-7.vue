@@ -26,7 +26,7 @@
                 <div>
                     <div class="text-xs-center">
                         <v-dialog
-                        v-model="dialog"
+                        v-model="dialog1"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -50,7 +50,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                              <h2 class="text-xs-center">問題出在承恩身上</h2>
+                              <h2 class="text-xs-center">北門遺落了各式各樣的訊息，可能會有些用處</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -58,7 +58,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog1 = false"
                             >
                                 back
                             </v-btn>
@@ -69,7 +69,7 @@
                 </div>
                 <div>
                     <v-dialog
-                        v-model="dialog"
+                        v-model="dialog2"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -93,7 +93,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                              <h2 class="text-xs-center">先找出杓子在哪</h2>
+                              <h2 class="text-xs-center">量量看，勺子的柄歪了幾度？</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -101,7 +101,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog2 = false"
                             >
                                 back
                             </v-btn>
@@ -111,7 +111,7 @@
                 </div>
                 <div>
                     <v-dialog
-                        v-model="dialog"
+                        v-model="dialog3"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -143,7 +143,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog3 = false"
                             >
                                 back
                             </v-btn>
@@ -160,7 +160,9 @@
 export default {
   data () {
     return {
-      dialog: false,
+      dialog1: false,
+      dialog2: false,
+      dialog3: false,
       input: '',
       inputJudge: '',
       inputRules: [
