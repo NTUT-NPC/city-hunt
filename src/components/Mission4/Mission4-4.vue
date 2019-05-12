@@ -1,7 +1,7 @@
 <template>
     <div class="pa-4" style="height: calc(100vh - 56px);" ref="image">
         <v-layout column justify-center fill-height>
-            <h1 class="text-xs-center mb-5">解開盒子密碼</h1>
+            <h1 class="text-xs-center mb-5">請拿出實體包中的信封解開謎題，並解開盒子密碼</h1>
             <div class="text-xs-center">
               <v-text-field
                     v-model="input"
