@@ -13,15 +13,10 @@ function getCurrentPosition () {
  */
 export async function getSelfLocation () {
   if ('geolocation' in navigator) {
-    const permissionStatus = await navigator.permissions.query({ name: 'geolocation' })
-    if (permissionStatus.state === 'denied') {
-      throw Error('Permission denied')
-    } else {
-      const { coords } = await getCurrentPosition()
-      return {
-        lat: coords.latitude,
-        lng: coords.longitude
-      }
+    const { coords } = await getCurrentPosition()
+    return {
+      lat: coords.latitude,
+      lng: coords.longitude
     }
   } else {
     throw Error('Geolocation is not available')

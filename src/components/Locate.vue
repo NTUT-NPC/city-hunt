@@ -10,6 +10,7 @@
     </div>
     <v-progress-circular v-else class="ma-5" size="70" indeterminate color="primary"></v-progress-circular>
     <p class="message" v-text="message"></p>
+    <p class="mx-5 text-xs-center" v-text="errMsg"></p>
   </v-layout>
 </template>
 
@@ -32,7 +33,8 @@ export default {
   },
   data () {
     return {
-      status: STATUS.NEVER
+      status: STATUS.NEVER,
+      errMsg: ''
     }
   },
   computed: {
@@ -55,7 +57,7 @@ export default {
         case STATUS.PROCESSING:
           return '定位中...'
         case STATUS.CHECKED_WRONG:
-          return '你確定是這裡？'
+          return '確定是這裡嗎？請再想想喔'
         case STATUS.CHECKED_CORRECT:
           return `你到了正確的地方，請點擊頁面！`
         default:
@@ -66,6 +68,7 @@ export default {
   methods: {
     async locate () {
       try {
+        this.errMsg = ''
         this.status = STATUS.PROCESSING
         const locationA = await getSelfLocation()
         const locationB = this.target
@@ -73,6 +76,7 @@ export default {
         this.status = distance <= 50 ? STATUS.CHECKED_CORRECT : STATUS.CHECKED_WRONG
         this.$emit('locate', distance <= 50)
       } catch (err) {
+        this.errMsg = err.message
         this.status = STATUS.ERROR
         this.$emit('locate', false)
       }
