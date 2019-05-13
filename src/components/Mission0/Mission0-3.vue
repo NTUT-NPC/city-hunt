@@ -20,6 +20,7 @@
       style="max-width: 300px;"
       class="mx-auto mt-5"
       large
+      round
       @click="inputJudge"
       >
         進入第一章
