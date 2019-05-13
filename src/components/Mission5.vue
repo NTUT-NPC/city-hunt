@@ -1,6 +1,6 @@
 <template>
   <div :class="{full: !showNavbar, navbar: showNavbar}">
-    <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
+    <v-layout align-center justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
     <Navbar v-if="showNavbar" @nav="nav = $event"></Navbar>
