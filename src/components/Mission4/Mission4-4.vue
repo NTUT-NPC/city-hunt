@@ -26,7 +26,7 @@
                 <div>
                     <div class="text-xs-center">
                         <v-dialog
-                        v-model="dialog"
+                        v-model="dialog1"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -50,7 +50,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                              <h2 class="text-xs-center">找四周的相似之處</h2>
+                              <h2 class="text-xs-center">看看附近的文字牌</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -58,7 +58,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog1 = false"
                             >
                                 back
                             </v-btn>
@@ -93,7 +93,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                              <h2 class="text-xs-center">符號四周的數字</h2>
+                              <h2 class="text-xs-center">線索上的日文對應到文字牌中的什麼呢？</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -101,7 +101,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog2 = false"
                             >
                                 back
                             </v-btn>
@@ -111,7 +111,7 @@
                 </div>
                 <div>
                     <v-dialog
-                        v-model="dialog"
+                        v-model="dialog3"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -135,7 +135,7 @@
                             </v-card-title>
 
                             <v-card-text>
-                              <h2 class="text-xs-center">1938 地上</h2>
+                              <h2 class="text-xs-center">每個日文字的排列是什麼呢？</h2>
                             </v-card-text>
 
                             <v-card-actions>
@@ -143,7 +143,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog3 = false"
                             >
                                 back
                             </v-btn>
@@ -160,7 +160,9 @@
 export default {
   data () {
     return {
-      dialog: false,
+      dialog1: false,
+      dialog2: false,
+      dialog3: false,
       input: '',
       inputJudge: '',
       inputRules: [

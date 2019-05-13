@@ -26,7 +26,7 @@
                 <div>
                     <div class="text-xs-center">
                         <v-dialog
-                        v-model="dialog"
+                        v-model="dialog1"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -47,91 +47,6 @@
                             primary-title
                             >
                             初級提示
-                            </v-card-title>
-
-                            <v-card-text>
-                              <h2 class="text-xs-center">與數學有關</h2>
-                            </v-card-text>
-
-                            <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn
-                                color="primary"
-                                flat
-                                @click="dialog = false"
-                            >
-                                back
-                            </v-btn>
-                            </v-card-actions>
-                        </v-card>
-                        </v-dialog>
-                    </div>
-                </div>
-                <div>
-                    <v-dialog
-                        v-model="dialog"
-                        width="300"
-                        >
-                        <template v-slot:activator="{ on }">
-                            <v-btn
-                            color="red lighten-2"
-                            dark
-                            v-on="on"
-                            large
-                            round
-                            >
-                            中級提示
-                            </v-btn>
-                        </template>
-
-                        <v-card>
-                            <v-card-title
-                            class="headline lighten-2"
-                            primary-title
-                            >
-                            中級提示
-                            </v-card-title>
-
-                            <v-card-text>
-                              <h2 class="text-xs-center">間隔為2</h2>
-                            </v-card-text>
-
-                            <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn
-                                color="primary"
-                                flat
-                                @click="dialog = false"
-                            >
-                                back
-                            </v-btn>
-                            </v-card-actions>
-                        </v-card>
-                        </v-dialog>
-                </div>
-                <div>
-                    <v-dialog
-                        v-model="dialog"
-                        width="300"
-                        >
-                        <template v-slot:activator="{ on }">
-                            <v-btn
-                            color="red lighten-2"
-                            dark
-                            v-on="on"
-                            round
-                            large
-                            >
-                            高級提示
-                            </v-btn>
-                        </template>
-
-                        <v-card>
-                            <v-card-title
-                            class="headline lighten-2"
-                            primary-title
-                            >
-                            高級提示
                             </v-card-title>
 
                             <v-card-text>
@@ -143,7 +58,92 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog1 = false"
+                            >
+                                back
+                            </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                    </div>
+                </div>
+                <div>
+                    <v-dialog
+                        v-model="dialog2"
+                        width="300"
+                        >
+                        <template v-slot:activator="{ on }">
+                            <v-btn
+                            color="red lighten-2"
+                            dark
+                            v-on="on"
+                            large
+                            round
+                            >
+                            中級提示
+                            </v-btn>
+                        </template>
+
+                        <v-card>
+                            <v-card-title
+                            class="headline lighten-2"
+                            primary-title
+                            >
+                            中級提示
+                            </v-card-title>
+
+                            <v-card-text>
+                              <h2 class="text-xs-center">公差=2</h2>
+                            </v-card-text>
+
+                            <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="primary"
+                                flat
+                                @click="dialog2 = false"
+                            >
+                                back
+                            </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                </div>
+                <div>
+                    <v-dialog
+                        v-model="dialog3"
+                        width="300"
+                        >
+                        <template v-slot:activator="{ on }">
+                            <v-btn
+                            color="red lighten-2"
+                            dark
+                            v-on="on"
+                            round
+                            large
+                            >
+                            高級提示
+                            </v-btn>
+                        </template>
+
+                        <v-card>
+                            <v-card-title
+                            class="headline lighten-2"
+                            primary-title
+                            >
+                            高級提示
+                            </v-card-title>
+
+                            <v-card-text>
+                              <h2 class="text-xs-center">A=第幾個, N=總共幾項</h2>
+                            </v-card-text>
+
+                            <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="primary"
+                                flat
+                                @click="dialog3 = false"
                             >
                                 back
                             </v-btn>
@@ -160,7 +160,9 @@
 export default {
   data () {
     return {
-      dialog: false,
+      dialog1: false,
+      dialog2: false,
+      dialog3: false,
       input: '',
       inputJudge: '',
       inputRules: [
