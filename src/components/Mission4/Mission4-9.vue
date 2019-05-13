@@ -8,21 +8,22 @@
 export default {
   data () {
     return {
-      imageURL: require('@/assets/Mission4/4-3-1.jpg'),
+      imageURL: require('@/assets/Mission4/4-4-1.jpg'),
       image: 1
     }
   },
   created () {
     this.$emit('inputJudge', true)
+    // 待做判斷
   },
   methods: {
     NextImage () {
       this.image += 1
-      if (this.image >= 12) {
+      if (this.image >= 7) {
         this.$emit('inputJudge', false)
         this.$refs.image.click()
       } else {
-        this.imageURL = require(`@/assets/Mission4/4-3-${this.image}.jpg`)
+        this.imageURL = require(`@/assets/Mission4/4-4-${this.image}.jpg`)
       }
     }
   }

@@ -19,9 +19,6 @@ import Mission48 from '@/components/Mission4/Mission4-8'
 import Mission49 from '@/components/Mission4/Mission4-9'
 import Mission410 from '@/components/Mission4/Mission4-10'
 import Mission411 from '@/components/Mission4/Mission4-11'
-import Mission412 from '@/components/Mission4/Mission4-12'
-import Mission413 from '@/components/Mission4/Mission4-13'
-import Mission414 from '@/components/Mission4/Mission4-14'
 import BagCard from '@/components/BagCard'
 import Navbar from '@/components/Navbar'
 
@@ -45,9 +42,6 @@ export default {
     Mission49,
     Mission410,
     Mission411,
-    Mission412,
-    Mission413,
-    Mission414,
     BagCard,
     Navbar
   },
@@ -79,7 +73,7 @@ export default {
   },
   methods: {
     nextStory () {
-      if (this.story === 14) {
+      if (this.story === 11) {
         localStorage.story = +1
         this.$emit('Mission', '5')
       } else {
