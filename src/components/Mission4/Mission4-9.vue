@@ -1,6 +1,6 @@
 <template>
   <v-layout fill-height wrap justify-center align-center>
-    <img @click="NextImage" :src="imageURL" style="height: 100%" ref="image" />
+    <img @click="NextImage" :src="imageURL" style="width: 100%; max-width: 800px;" ref="image" />
   </v-layout>
 </template>
 
