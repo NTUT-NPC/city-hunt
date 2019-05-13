@@ -1,20 +1,32 @@
 <template>
     <v-bottom-nav
       :active.sync="bottomNav"
-      :color="color"
+      color="white"
       :value="true"
       fixed
       dark
       shift
     >
-      <v-btn dark>
+      <v-btn
+        flat
+        color="teal"
+      >
         <span>任務</span>
         <v-icon>calendar_today</v-icon>
       </v-btn>
-
-      <v-btn dark>
+      <v-btn
+        flat
+        color="teal"
+      >
         <span>背包</span>
         <v-icon>work_outline</v-icon>
+      </v-btn>
+      <v-btn
+        flat
+        color="teal"
+      >
+        <span>回顧</span>
+        <v-icon>history</v-icon>
       </v-btn>
     </v-bottom-nav>
 </template>

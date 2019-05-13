@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     showNavbar () {
-      return [3, 5].includes(this.story)
+      return [3, 5].includes(+this.story)
     },
     component () {
       if (this.nav === 0) {

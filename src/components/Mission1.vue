@@ -39,9 +39,10 @@ export default {
     BagCard,
     Navbar
   },
-  mounted () {
+  created () {
     this.story = localStorage.story || 1
-
+  },
+  mounted () {
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
       window.addEventListener('popstate', this.goBack, false)
@@ -55,9 +56,10 @@ export default {
   },
   computed: {
     showNavbar () {
-      return [3, 5, 7].includes(this.story)
+      return [3, 5, 7].includes(+this.story)
     },
     component () {
+      console.log(this.nav)
       if (this.nav === 0) {
         return `Mission1${this.story}`
       } else {
