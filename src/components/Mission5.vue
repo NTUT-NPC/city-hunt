@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     showNavbar () {
-      return [2, 4].includes(this.story)
+      return [2, 4].includes(+this.story)
     },
     component () {
       if (this.nav === 0) {
