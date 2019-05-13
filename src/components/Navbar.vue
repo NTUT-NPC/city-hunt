@@ -4,11 +4,9 @@
       color="transparent"
       :value="true"
       fixed
-      dark
-      shift
     >
       <v-btn
-        dark
+        flat
         color="teal"
         value="1"
       >
@@ -17,7 +15,7 @@
       </v-btn>
 
       <v-btn
-        dark
+        flat
         color="teal"
         value="2"
       >
@@ -25,7 +23,7 @@
         <v-icon>work_outline</v-icon>
       </v-btn>
       <v-btn
-        dark
+        flat
         color="teal"
         value="3"
       >
