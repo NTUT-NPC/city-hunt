@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import Mission0 from '@/components/Mission0'
 import Mission1 from '@/components/Mission1'
 import Mission2 from '@/components/Mission2'
 import Mission3 from '@/components/Mission3'
@@ -15,11 +16,11 @@ import Mission6 from '@/components/Mission6'
 export default {
   data () {
     return {
-      judgeId: 1
+      judgeId: 0
     }
   },
   created () {
-    this.judgeId = localStorage.Mission || 1
+    this.judgeId = localStorage.Mission || 0
   },
   computed: {
     componentId () {
@@ -28,6 +29,7 @@ export default {
     }
   },
   components: {
+    Mission0,
     Mission1,
     Mission2,
     Mission3,
