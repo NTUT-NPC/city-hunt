@@ -3,7 +3,7 @@
     <h2 class="display-1 font-weight-bold">解開九宮格謎題</h2>
     <p
       :class="['headline', 'pa-0', 'mt-3', textColorClass]"
-    >x = {{ answers[0] || '?' }}, y = {{ answers[1] || '?' }}, z = {{ answers[2] || '?' }}</p>
+    >A = {{ answers[0] || '?' }}, B = {{ answers[1] || '?' }}, C = {{ answers[2] || '?' }}</p>
     <div class="ma-4">
       <v-layout row wrap>
         <v-flex
