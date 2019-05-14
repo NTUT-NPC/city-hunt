@@ -11,7 +11,7 @@
           </v-btn>
         </v-card-actions>
       </div>
-      <div>
+      <div class="img_size">
         <slot name = "img"></slot>
       </div>
       <v-divider></v-divider>
@@ -23,6 +23,9 @@
 </template>
 
 <style>
+.img_size {
+  width: 100%;
+}
 .item_top{
   width: 100%;
   display: flex;
