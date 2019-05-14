@@ -14,10 +14,6 @@
       <div class="img_size">
         <slot name = "img"></slot>
       </div>
-      <v-divider></v-divider>
-      <div class = "bottom">
-        <slot name = "describe" class="item_describe"></slot>
-        </div>
     </div>
   </v-card>
 </template>
@@ -29,13 +25,6 @@
 .item_top{
   width: 100%;
   display: flex;
-}
-.bottom{
-  border: 1px solid rgba(53, 73, 94,0.3);
-  padding: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 }
 .item_title{
   flex: 2;
