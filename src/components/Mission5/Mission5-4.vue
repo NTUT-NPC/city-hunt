@@ -28,7 +28,16 @@
           </v-layout>
         </v-container>
         <h2 v-show="hasError" class="textRed mb-2">輸入錯誤！</h2>
-        <v-btn @click="inputJudge">確認</v-btn>
+        <v-btn
+          @click="inputJudge"
+          class="mb-3"
+          large
+          round
+          color="brown"
+          dark
+        >
+          確認
+        </v-btn>
     </v-layout>
 </template>
 
@@ -36,7 +45,7 @@
 export default {
   data () {
     return {
-      hasError: undefined,
+      hasError: false,
       nameRules: [
         v => !!v || '你還沒有輸入此欄喔！'
       ],
@@ -98,6 +107,10 @@ export default {
           this.hasError = true
           return
         }
+      }
+
+      if (this.hasError === false) {
+        this.NextView()
       }
     }
   }
