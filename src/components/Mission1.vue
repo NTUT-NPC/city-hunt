@@ -1,5 +1,6 @@
 <template>
   <div :class="{full: !showNavbar, navbar: showNavbar}">
+    <TimeLine v-if="showNavbar"></TimeLine>
     <v-layout align-center fill-height justify-center @click="!inputJudge && nextStory()">
       <component :is="component" @inputJudge="inputJudge = $event"></component>
     </v-layout>
@@ -18,6 +19,7 @@ import Mission17 from '@/components/Mission1/Mission1-7'
 import Mission18 from '@/components/Mission1/Mission1-8'
 import BagCard from '@/components/BagCard'
 import Navbar from '@/components/Navbar'
+import TimeLine from '@/components/TimeLine'
 
 export default {
   data () {
@@ -37,7 +39,8 @@ export default {
     Mission17,
     Mission18,
     BagCard,
-    Navbar
+    Navbar,
+    TimeLine
   },
   created () {
     this.story = localStorage.story || 1
