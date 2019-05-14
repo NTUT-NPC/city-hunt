@@ -31,8 +31,7 @@
                         >
                         <template v-slot:activator="{ on }">
                             <v-btn
-                            color="red lighten-2"
-                            dark
+                            color="#ffc18c"
                             v-on="on"
                             large
                             round
@@ -74,8 +73,7 @@
                         >
                         <template v-slot:activator="{ on }">
                             <v-btn
-                            color="red lighten-2"
-                            dark
+                            color="#ffc18c"
                             v-on="on"
                             large
                             round
@@ -116,8 +114,7 @@
                         >
                         <template v-slot:activator="{ on }">
                             <v-btn
-                            color="red lighten-2"
-                            dark
+                            color="#ffc18c"
                             v-on="on"
                             round
                             large
