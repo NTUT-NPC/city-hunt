@@ -1,8 +1,6 @@
 <template>
     <v-layout fill-height align-center justify-center @click="NextView" style="height: 100%" ref='image'>
-        <h1>
-            待放一片白光
-        </h1>
+        <img src="@/assets/Mission5/5-1-7.jpg" style="width: 100%;">
     </v-layout>
 </template>
 <script>
