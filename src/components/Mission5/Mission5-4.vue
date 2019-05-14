@@ -28,6 +28,14 @@
           </v-layout>
         </v-container>
         <h2 v-show="hasError" class="textRed mb-2">輸入錯誤！</h2>
+        <v-btn
+          @click="inputJudge"
+          color="brown"
+          dark
+          round
+        >
+          確認
+        </v-btn>
         <div class="text-xs-center mt-4">
                 <div>
                     <div class="text-xs-center">
@@ -37,8 +45,7 @@
                         >
                         <template v-slot:activator="{ on }">
                             <v-btn
-                            color="red lighten-2"
-                            dark
+                            color="#ffc18c"
                             v-on="on"
                             large
                             round
@@ -80,8 +87,7 @@
                         >
                         <template v-slot:activator="{ on }">
                             <v-btn
-                            color="red lighten-2"
-                            dark
+                            color="#ffc18c"
                             v-on="on"
                             large
                             round
@@ -122,8 +128,7 @@
                         >
                         <template v-slot:activator="{ on }">
                             <v-btn
-                            color="red lighten-2"
-                            dark
+                            color="#ffc18c"
                             v-on="on"
                             round
                             large
@@ -158,7 +163,6 @@
                         </v-dialog>
                 </div>
             </div>
-        <v-btn @click="inputJudge">確認</v-btn>
     </v-layout>
 </template>
 
