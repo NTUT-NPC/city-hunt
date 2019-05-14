@@ -9,8 +9,6 @@
             <template v-slot:activator="{ on }">
               <div class="center">
               <img :src=item.img
-                width="100%"
-                class = "bag_items_img"
                 v-on="on" >
               <div class="bag_item_name">
                 {{item.name}}
@@ -38,9 +36,7 @@
 * {
   font-family: "微軟正黑體";
 }
-.bag_items_img {
-  border-bottom: 3px solid rgba(1, 1, 1, 0.3);
-}
+
 .bag_item_name {
   font-size: 1.3rem;
 }
@@ -65,15 +61,14 @@ ul {
   flex-wrap: wrap;
 }
 li {
-  margin-bottom: 30px;
-  margin: 10px 0 10px 0;
-  /* flex: 1; */
+  margin-bottom: 45px;
   max-width: 120px;
   min-width: 80px;
+  max-height: 200px;
+  min-width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
   list-style: none;
 }
 </style>
