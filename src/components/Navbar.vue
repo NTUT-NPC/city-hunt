@@ -1,29 +1,28 @@
 <template>
     <v-bottom-nav
       :active.sync="bottomNav"
-      color="white"
+      :color="color"
       :value="true"
       fixed
       dark
-      shift
     >
       <v-btn
         flat
-        color="teal"
+        color="white"
       >
         <span>任務</span>
         <v-icon>calendar_today</v-icon>
       </v-btn>
       <v-btn
         flat
-        color="teal"
+        color="white"
       >
         <span>背包</span>
         <v-icon>work_outline</v-icon>
       </v-btn>
       <v-btn
         flat
-        color="teal"
+        color="white"
       >
         <span>回顧</span>
         <v-icon>history</v-icon>
@@ -41,8 +40,9 @@ export default {
   computed: {
     color () {
       switch (this.bottomNav) {
-        case 0: return 'blue-grey'
-        case 1: return '#43A047'
+        case 0: return '#c48b59'
+        case 1: return '#916547'
+        case 2: return '#c48b59'
         default: return 'transparent'
       }
     }
