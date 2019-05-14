@@ -8,7 +8,7 @@
                 color="teal"
                 round
                 large
-                @click="EndingSelect(1)"
+                @click="EndingSelect('a')"
             >
                 證據給兒子揭發真相
             </v-btn>
@@ -18,7 +18,7 @@
                 color="teal"
                 round
                 large
-                @click="EndingSelect(2)"
+                @click="EndingSelect('b')"
             >
                 說服兒子放下過去
             </v-btn>
@@ -37,7 +37,8 @@ export default {
       this.$refs.image.click()
     },
     EndingSelect (variable) {
-      // 待新增
+      console.log(variable)
+      localStorage.ending = variable
     }
   }
 }
