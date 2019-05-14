@@ -1,9 +1,5 @@
 <template>
-    <v-layout fill-height align-center justify-center style="height: 100%" ref='image'>
-        <h1>
-            END
-        </h1>
-    </v-layout>
+    <img src="@/assets/Mission6/6-2.jpg" style="width: 100%; max-width: 800px;">
 </template>
 
 <script>
