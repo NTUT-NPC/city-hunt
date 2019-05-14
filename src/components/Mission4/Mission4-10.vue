@@ -26,7 +26,7 @@
                 <div>
                     <div class="text-xs-center">
                         <v-dialog
-                        v-model="dialog"
+                        v-model="dialog1"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -58,7 +58,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog1 = false"
                             >
                                 back
                             </v-btn>
@@ -69,7 +69,7 @@
                 </div>
                 <div>
                     <v-dialog
-                        v-model="dialog"
+                        v-model="dialog2"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -101,7 +101,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog2 = false"
                             >
                                 back
                             </v-btn>
@@ -111,7 +111,7 @@
                 </div>
                 <div>
                     <v-dialog
-                        v-model="dialog"
+                        v-model="dialog3"
                         width="300"
                         >
                         <template v-slot:activator="{ on }">
@@ -143,7 +143,7 @@
                             <v-btn
                                 color="primary"
                                 flat
-                                @click="dialog = false"
+                                @click="dialog3 = false"
                             >
                                 back
                             </v-btn>
@@ -160,7 +160,9 @@
 export default {
   data () {
     return {
-      dialog: false,
+      dialog1: false,
+      dialog2: false,
+      dialog3: false,
       input: '',
       inputJudge: '',
       inputRules: [
