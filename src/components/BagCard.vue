@@ -29,7 +29,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 * {
   font-family: "微軟正黑體";
 }
@@ -68,6 +68,10 @@ li {
   justify-content: center;
   list-style: none;
 }
+p{
+  margin : 5px ;
+  padding: 0 !important;
+}
 </style>
 
 <script>
@@ -87,8 +91,8 @@ export default {
   data () {
     return {
       items: [
-        { name: '線索1-信封', img: require('@/assets/item/ch2線索1_信封.png'), show: false },
-        { name: '線索2-信', img: require('@/assets/item/ch2線索2_信.png'), show: false },
+        { name: '信封', img: require('@/assets/item/ch2線索1_信封.png'), show: false },
+        { name: '信', img: require('@/assets/item/ch2線索2_信.png'), show: false },
         { name: '地址號碼解說', img: require('@/assets/item/ch2線索3_地址號碼解說.jpg'), show: false },
         { name: '第一部分線索1', img: require('@/assets/item/ch3第一部分線索1.png'), show: false },
         { name: '第二部分地圖', img: require('@/assets/item/ch3第二部分地圖.png'), show: false },
@@ -97,16 +101,16 @@ export default {
         // { name: '盒內的永嘉自白信', img: require('@/assets/item/ch4 盒內的永嘉自白信.jpg'), show: false },
         // { name: '盒子開', img: require('@/assets/item/ch4盒子開.PNG'), show: false },
         // { name: '盒子關', img: require('@/assets/item/ch4盒子關.PNG'), show: false },
-        { name: 'ch4第一部份-線索1', img: require('@/assets/item/ch4第一部份-線索1.jpg'), show: false },
-        { name: 'ch4第一部份_線索2', img: require('@/assets/item/ch4第一部份_線索2.jpg'), show: false },
-        { name: 'ch4第二部分線索-水門照', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), show: false },
+        { name: '線索1', img: require('@/assets/item/ch4第一部份-線索1.jpg'), show: false },
+        { name: '線索2', img: require('@/assets/item/ch4第一部份_線索2.jpg'), show: false },
+        { name: '水門照', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), show: false },
         // { name: 'ch5八卦謎題-法器', img: require('@/assets/item/ch5八卦謎題-法器.png'), show: false },
         // { name: 'ch5八卦謎題線索-旅人筆記', img: require('@/assets/item/ch5八卦謎題線索-旅人筆記.png'), show: false },
-        { name: '信壓-01.png', img: require('@/assets/item/信壓-01.png'), show: false },
-        { name: '信封.png', img: require('@/assets/item/信封.png'), show: false },
+        { name: '信壓', img: require('@/assets/item/信壓-01.png'), show: false },
+        { name: '信封', img: require('@/assets/item/信封.png'), show: false },
         { name: '實體道具MAP1', img: require('@/assets/item/實體道具MAP1.png'), show: false },
-        { name: '實體道具七星山由來', img: require('@/assets/item/實體道具七星山由來.png'), show: false },
-        { name: '實體道具勺勺', img: require('@/assets/item/實體道具勺勺.jpg'), show: false },
+        { name: '七星山由來', img: require('@/assets/item/實體道具七星山由來.png'), show: false },
+        { name: '勺勺', img: require('@/assets/item/實體道具勺勺.jpg'), show: false },
         { name: '實體道具吃的跟勺', img: require('@/assets/item/實體道具吃的跟勺.png'), show: false }
 
       ]

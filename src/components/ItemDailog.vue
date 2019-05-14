@@ -1,37 +1,29 @@
 <template>
   <v-card>
     <div class="item">
-      <div class="item_top">
-        <slot name = "title" class="item_title"></slot>
-        <v-card-actions class="item_close">
-          <v-btn
-            @click="set"
-          >
-            X
-          </v-btn>
-        </v-card-actions>
-      </div>
-      <div class="img_size">
+      <v-card-actions class="item_top">
+        <slot name = "title"></slot>
+        <v-btn
+          @click="set"
+          flat icon color="indigo"
+        >
+        x
+        </v-btn>
+      </v-card-actions>
+      <div>
         <slot name = "img"></slot>
       </div>
     </div>
   </v-card>
 </template>
 
-<style>
-.img_size {
-  width: 100%;
-}
-.item_top{
+<style scoped>
+.item_top {
   width: 100%;
   display: flex;
-}
-.item_title{
-  flex: 2;
-}
-.item_close {
-  flex : 1;
-  justify-content: flex-end;
+  justify-content: center;
+  position: relative;
+  padding: 0;
 }
 .item {
   padding: 10px;
@@ -39,6 +31,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.v-btn {
+  position: absolute;
+  right: -5px;
+  top: -5px;
 }
 </style>
 
