@@ -13,6 +13,7 @@ import Mission32 from '@/components/Mission3/Mission3-2'
 import Mission33 from '@/components/Mission3/Mission3-3'
 import Mission34 from '@/components/Mission3/Mission3-4'
 import Mission35 from '@/components/Mission3/Mission3-5'
+import Mission36 from '@/components/Mission3/Mission3-6'
 import BagCard from '@/components/BagCard'
 import Navbar from '@/components/Navbar'
 
@@ -30,6 +31,7 @@ export default {
     Mission33,
     Mission34,
     Mission35,
+    Mission36,
     BagCard,
     Navbar
   },
