@@ -1,6 +1,6 @@
 <template>
     <v-layout fill-height align-center justify-center style="height: 100%" ref='image'>
-        <img @click="NextImage" :src="imageURL" style="width: 100%; max-width: 800px;" ref="image" />
+        <img @click="NextImage" :src="imageURL" style="width: 100vh; transform: rotate(90deg);" ref="image" />
     </v-layout>
 </template>
 
