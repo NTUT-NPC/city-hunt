@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     nextStory () {
-      if (+this.story === 5) {
+      if (+this.story >= 7) {
         localStorage.story = +1
         this.$emit('Mission', '4')
       } else {
