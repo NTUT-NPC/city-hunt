@@ -1,7 +1,7 @@
 <template>
     <div class="pa-4" style="height: calc(100vh - 56px)">
         <v-layout column justify-center fill-height>
-            <h2 class="text-xs-center">請輸入地址</h2>
+            <h2 class="text-xs-center">請輸入地點</h2>
             <div class="mt-3 text-xs-center">
                 <v-text-field
                     v-model="input"
