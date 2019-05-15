@@ -16,7 +16,7 @@
           <v-btn
             fab
             outline
-            color="blue"
+            color="#c49b58"
             class="headline"
             @click="clickButton(button.text)"
           >{{ button.text }}</v-btn>
@@ -26,7 +26,7 @@
     <div>
       <v-dialog v-model="dialog1" width="300">
         <template v-slot:activator="{ on }">
-          <v-btn color="red lighten-2" dark v-on="on" large round>初級提示</v-btn>
+          <v-btn color="#ffc18c" dark v-on="on" large round>初級提示</v-btn>
         </template>
 
         <v-card>
@@ -46,7 +46,7 @@
     <div>
       <v-dialog v-model="dialog2" width="300">
         <template v-slot:activator="{ on }">
-          <v-btn color="red lighten-2" dark v-on="on" large round>中級提示</v-btn>
+          <v-btn color="#ffc18c" dark v-on="on" large round>中級提示</v-btn>
         </template>
 
         <v-card>
@@ -64,15 +64,7 @@
       </v-dialog>
     </div>
     <div>
-      <v-btn
-        color="red lighten-2"
-        dark
-        @click.stop="showPrompt"
-        round
-        large
-      >
-        高級提示
-      </v-btn>
+      <v-btn color="#ffc18c" dark @click.stop="showPrompt" round large>高級提示</v-btn>
 
       <v-dialog v-model="dialog3" width="300">
         <v-card>
