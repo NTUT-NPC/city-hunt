@@ -38,7 +38,7 @@
         >
           確認
         </v-btn>
-        <div class="text-xs-center mt-4">
+        <div class="text-xs-center my-4">
                 <div>
                     <div class="text-xs-center">
                         <v-dialog
@@ -124,21 +124,19 @@
                         </v-dialog>
                 </div>
                 <div>
-                    <v-dialog
-                        v-model="dialog3"
-                        width="300"
-                        >
-                        <template v-slot:activator="{ on }">
-                            <v-btn
-                            color="#ffc18c"
-                            v-on="on"
-                            round
-                            large
-                            >
-                            高級提示
-                            </v-btn>
-                        </template>
+                    <v-btn
+                      color="#ffc18c"
+                      @click.stop="showPrompt"
+                      round
+                      large
+                    >
+                      高級提示
+                    </v-btn>
 
+                    <v-dialog
+                      v-model="dialog3"
+                      width="300"
+                    >
                         <v-card>
                             <v-card-title
                             class="headline lighten-2"
@@ -242,6 +240,10 @@ export default {
       if (this.hasError === false) {
         this.NextView()
       }
+    },
+    showPrompt () {
+      let showPrompt = confirm('這已經是最高級的提示了，確定不再努力看看嗎？')
+      this.dialog3 = showPrompt
     }
   }
 }

@@ -64,11 +64,17 @@
       </v-dialog>
     </div>
     <div>
-      <v-dialog v-model="dialog3" width="300">
-        <template v-slot:activator="{ on }">
-          <v-btn color="red lighten-2" dark v-on="on" round large>高級提示</v-btn>
-        </template>
+      <v-btn
+        color="red lighten-2"
+        dark
+        @click.stop="showPrompt"
+        round
+        large
+      >
+        高級提示
+      </v-btn>
 
+      <v-dialog v-model="dialog3" width="300">
         <v-card>
           <v-card-title class="headline lighten-2" primary-title>高級提示</v-card-title>
 
@@ -182,6 +188,10 @@ export default {
         this.answers = []
       }
       this.answers.push(ans)
+    },
+    showPrompt () {
+      let showPrompt = confirm('這已經是最高級的提示了，確定不再努力看看嗎？')
+      this.dialog3 = showPrompt
     }
   }
 }

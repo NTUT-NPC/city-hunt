@@ -108,21 +108,19 @@
                         </v-dialog>
                 </div>
                 <div>
+                    <v-btn
+                      color="#ffc18c"
+                      @click.stop="showPrompt"
+                      round
+                      large
+                    >
+                      高級提示
+                    </v-btn>
+
                     <v-dialog
                         v-model="dialog3"
                         width="300"
                         >
-                        <template v-slot:activator="{ on }">
-                            <v-btn
-                            color="#ffc18c"
-                            v-on="on"
-                            round
-                            large
-                            >
-                            高級提示
-                            </v-btn>
-                        </template>
-
                         <v-card>
                             <v-card-title
                             class="headline lighten-2"
@@ -192,6 +190,10 @@ export default {
         this.inputJudge = '輸入錯誤！再重新試試看！'
         this.$emit('inputJudge', true)
       }
+    },
+    showPrompt () {
+      let showPrompt = confirm('這已經是最高級的提示了，確定不再努力看看嗎？')
+      this.dialog3 = showPrompt
     }
   }
 }
