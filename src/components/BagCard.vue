@@ -1,32 +1,26 @@
 <template>
-    <div class="bag_container">
-      <ul>
-        <li v-for="(item,index) in items" :key = index>
-          <v-dialog
-            v-model="item.show"
-            width="500"
-            >
-            <template v-slot:activator="{ on }">
-              <div class="center">
-              <img :src=item.img
-                v-on="on" >
-              <div class="bag_item_name">
-                {{item.name}}
-              </div>
-              </div>
-            </template>
-            <ItemDailog :value=item.show @childMethod="closeComponent(item)">
-                  <div slot="title" class="item_title">
-                    <p>{{item.name}}</p>
-                  </div>
-                  <div slot="img">
-                    <img :src= item.img>
-                  </div>
-            </ItemDailog>
-          </v-dialog>
-        </li>
-      </ul>
-    </div>
+  <div class="bag_container">
+    <ul>
+      <li v-for="(item,index) in items" :key="index">
+        <v-dialog v-model="item.show" width="500">
+          <template v-slot:activator="{ on }">
+            <div class="center">
+              <img :src="item.img" v-on="on">
+              <div class="bag_item_name">{{item.name}}</div>
+            </div>
+          </template>
+          <ItemDailog :value="item.show" @childMethod="closeComponent(item)">
+            <div slot="title" class="item_title">
+              <p>{{item.name}}</p>
+            </div>
+            <div slot="img">
+              <img :src="item.img">
+            </div>
+          </ItemDailog>
+        </v-dialog>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
@@ -68,8 +62,8 @@ li {
   justify-content: center;
   list-style: none;
 }
-p{
-  margin : 5px ;
+p {
+  margin: 5px;
   padding: 0 !important;
 }
 </style>
@@ -107,11 +101,7 @@ export default {
         // { name: 'ch5八卦謎題-法器', img: require('@/assets/item/ch5八卦謎題-法器.png'), show: false },
         // { name: 'ch5八卦謎題線索-旅人筆記', img: require('@/assets/item/ch5八卦謎題線索-旅人筆記.png'), show: false },
         { name: '信壓', img: require('@/assets/item/信壓-01.png'), show: false },
-        { name: '信封', img: require('@/assets/item/信封.png'), show: false },
-        { name: '實體道具MAP1', img: require('@/assets/item/實體道具MAP1.png'), show: false },
-        { name: '七星山由來', img: require('@/assets/item/實體道具七星山由來.png'), show: false },
-        { name: '勺勺', img: require('@/assets/item/實體道具勺勺.jpg'), show: false },
-        { name: '實體道具吃的跟勺', img: require('@/assets/item/實體道具吃的跟勺.png'), show: false }
+        { name: '信封', img: require('@/assets/item/信封.png'), show: false }
 
       ]
     }
