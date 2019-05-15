@@ -16,6 +16,7 @@ import Mission34 from '@/components/Mission3/Mission3-4'
 import Mission35 from '@/components/Mission3/Mission3-5'
 import Mission36 from '@/components/Mission3/Mission3-6'
 import BagCard from '@/components/BagCard'
+import ReviewCard from '@/components/ReviewCard'
 import Navbar from '@/components/Navbar'
 import TimeLine from '@/components/TimeLine'
 
@@ -36,6 +37,7 @@ export default {
     Mission36,
     BagCard,
     Navbar,
+    ReviewCard,
     TimeLine
   },
   mounted () {
@@ -59,8 +61,10 @@ export default {
     component () {
       if (this.nav === 0) {
         return `Mission3${this.story}`
-      } else {
+      } else if (this.nav === 1) {
         return 'BagCard'
+      } else {
+        return 'ReviewCard'
       }
     }
   },
