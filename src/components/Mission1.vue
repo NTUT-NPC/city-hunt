@@ -18,6 +18,7 @@ import Mission16 from '@/components/Mission1/Mission1-6'
 import Mission17 from '@/components/Mission1/Mission1-7'
 import Mission18 from '@/components/Mission1/Mission1-8'
 import BagCard from '@/components/BagCard'
+import ReviewCard from '@/components/ReviewCard'
 import Navbar from '@/components/Navbar'
 import TimeLine from '@/components/TimeLine'
 
@@ -39,6 +40,7 @@ export default {
     Mission17,
     Mission18,
     BagCard,
+    ReviewCard,
     Navbar,
     TimeLine
   },
@@ -65,8 +67,10 @@ export default {
       console.log(this.nav)
       if (this.nav === 0) {
         return `Mission1${this.story}`
-      } else {
+      } else if (this.nav === 1) {
         return 'BagCard'
+      } else {
+        return 'ReviewCard'
       }
     }
   },
