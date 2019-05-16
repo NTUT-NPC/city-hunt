@@ -31,28 +31,28 @@ jobs:
             git config --global user.email "yaoandy107@gmail.com"
             git config --global user.name "yaoandy107"
             ./deploy.sh
-    deploy:
-      docker:
-        - image: circleci/node:10.10.0
-      steps:
-        - checkout
-        - restore_cache:
-            keys:
-              # when lock file changes, use increasingly general patterns to restore cache
-              - node-v1-{{ checksum "package-lock.json" }}
-        - run:
-            name: Install dependencies
-            command: npm ci
-        - save_cache:
-            paths:
-                - ~/usr/local/lib/node_modules # location depends on npm version
-            key: node-v1-{{ checksum "package-lock.json" }}
-        - run:
-            name: Deploy Master to GitHub
-            command: |
-                git config --global user.email "yaoandy107@gmail.com"
-                git config --global user.name "yaoandy107"
-                ./deploy.sh
+  deploy:
+    docker:
+    - image: circleci/node:10.10.0
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - node-v1-{{ checksum "package-lock.json" }}
+    - run:
+        name: Install dependencies
+        command: npm ci
+    - save_cache:
+        paths:
+            - ~/usr/local/lib/node_modules # location depends on npm version
+        key: node-v1-{{ checksum "package-lock.json" }}
+    - run:
+        name: Deploy Master to GitHub
+        command: |
+            git config --global user.email "yaoandy107@gmail.com"
+            git config --global user.name "yaoandy107"
+            ./deploy.sh
 workflows:
   version: 2
   build-and-deploy:
