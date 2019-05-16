@@ -19,7 +19,10 @@
         </v-layout>
       </v-container>
     </template>
-    <v-card>
+    <v-card class="review-card">
+      <v-btn class="review-card__close-btn" right fab flat small @click="dialog = false">
+        <v-icon>close</v-icon>
+      </v-btn>
       <img class="image d-block" :src="availableList[currentIndex].img">
     </v-card>
   </v-dialog>
@@ -104,5 +107,13 @@ export default {
 .image {
   width: 100%;
   height: auto;
+}
+.review-card {
+  position: relative;
+  &__close-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
 }
 </style>
