@@ -85,23 +85,24 @@ export default {
   data () {
     return {
       items: [
-        { name: '信封', img: require('@/assets/item/ch2線索1_信封.png'), Mission: 1, Story: 1 },
-        { name: '信', img: require('@/assets/item/ch2線索2_信.png'), Mission: 2, Story: 1 },
-        { name: '地址號碼解說', img: require('@/assets/item/ch2線索3_地址號碼解說.jpg'), Mission: 2, Story: 1 },
-        { name: '第一部分線索1', img: require('@/assets/item/ch3第一部分線索1.png'), Mission: 2, Story: 1 },
-        { name: '第二部分地圖', img: require('@/assets/item/ch3第二部分地圖.png'), Mission: 2, Story: 3 },
-        { name: '線索1', img: require('@/assets/item/ch4第一部份-線索1.jpg'), Mission: 3, Story: 2 },
-        { name: '線索2', img: require('@/assets/item/ch4第一部份_線索2.jpg'), Mission: 3, Story: 2 },
-        { name: '水門照', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), Mission: 3, Story: 2 },
-        { name: '信壓', img: require('@/assets/item/信壓-01.png'), Mission: 3, Story: 2 },
-        { name: '信封', img: require('@/assets/item/信封.png'), Mission: 3, Story: 2 }
+        { name: '信封', img: require('@/assets/item/ch2線索1_信封.png'), Mission: 0 },
+        { name: '信', img: require('@/assets/item/ch2線索2_信.png'), Mission: 0 },
+        { name: '地址號碼解說', img: require('@/assets/item/ch2線索3_地址號碼解說.jpg'), Mission: 2 },
+        { name: '第一部分線索1', img: require('@/assets/item/ch3第一部分線索1.png'), Mission: 3 },
+        { name: '第二部分地圖', img: require('@/assets/item/ch3第二部分地圖.png'), Mission: 3 },
+        { name: '線索1', img: require('@/assets/item/ch4第一部份-線索1.jpg'), Mission: 3 },
+        { name: '線索2', img: require('@/assets/item/ch4第一部份_線索2.jpg'), Mission: 3 },
+        { name: '水門照', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), Mission: 3 },
+        { name: '信壓', img: require('@/assets/item/信壓-01.png'), Mission: 3 },
+        { name: '信封', img: require('@/assets/item/信封.png'), Mission: 3 }
       ]
     }
   },
   computed: {
     filterItems () {
+      const vm = this
       return this.items.filter(function (item) {
-        return item.Mission <= localStorage.Mission
+        return item.Mission <= vm.$store.state.reviewCount
       })
     }
   }
