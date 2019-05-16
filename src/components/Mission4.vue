@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     nextStory () {
-      if (this.story === 11) {
+      if (+this.story >= 12) {
         localStorage.story = +1
         this.$emit('Mission', '5')
       } else {
