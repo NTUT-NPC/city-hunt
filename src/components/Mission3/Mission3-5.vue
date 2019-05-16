@@ -96,7 +96,7 @@
         </v-card>
       </v-dialog>
     </div>
-    <v-dialog :value="completed" max-width="300" persistent>
+    <v-dialog :value="!locateDialog && completed" max-width="300" persistent>
       <v-card>
         <v-card-title primary-title class="headline">太好了！</v-card-title>
         <v-card-text>已找齊了四家藥舖！</v-card-text>
