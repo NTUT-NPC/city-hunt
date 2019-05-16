@@ -1,19 +1,20 @@
 <template>
   <v-layout class="py-4" column align-center justify-center fill-height ref="image">
     <h2 class="display-1 font-weight-bold">找到四家藥舖</h2>
-    <v-dialog
-      :value="locateDialog && !currentTarget.completed"
-      @input="locateDialog = $event"
-      width="300"
-    >
+    <v-dialog :value="locateDialog" @input="locateDialog = $event" width="300">
       <v-card class="pa-3">
         <v-layout column justify-center align-center>
           <h3 class="display-1 font-weight-bold" v-text="currentTarget.tag"></h3>
           <locate
+            v-if="!currentTarget.completed"
             :key="`locate-${currentTarget.tag}`"
             :target="currentTarget.location"
-            @locate="currentTarget.completed = $event"
+            @locate="locate($event)"
           ></locate>
+          <template v-else>
+            <h3 class="subheading">已獲得藥材{{ currentTarget.itemName }}</h3>
+            <img class="image" :src="currentTarget.img">
+          </template>
         </v-layout>
       </v-card>
     </v-dialog>
@@ -29,7 +30,7 @@
           <v-btn
             round
             outline
-            :color="target.completed ? 'green' : 'blue'"
+            :color="target.completed ? 'green' : '#c49b58'"
             class="headline"
             @click="clickButton(target)"
           >{{ target.tag }}</v-btn>
@@ -40,7 +41,7 @@
     <div>
       <v-dialog v-model="hintDialog1" width="300">
         <template v-slot:activator="{ on }">
-          <v-btn color="red lighten-2" dark v-on="on" large round>初級提示</v-btn>
+          <v-btn color="#ffc18c" dark v-on="on" large round>初級提示</v-btn>
         </template>
 
         <v-card>
@@ -60,7 +61,7 @@
     <div>
       <v-dialog v-model="hintDialog2" width="300">
         <template v-slot:activator="{ on }">
-          <v-btn color="red lighten-2" dark v-on="on" large round>中級提示</v-btn>
+          <v-btn color="#ffc18c" dark v-on="on" large round>中級提示</v-btn>
         </template>
 
         <v-card>
@@ -78,15 +79,7 @@
       </v-dialog>
     </div>
     <div>
-      <v-btn
-        color="red lighten-2"
-        dark
-        @click.stop="showPrompt"
-        round
-        large
-        >
-          高級提示
-        </v-btn>
+      <v-btn color="#ffc18c" dark @click.stop="showPrompt" round large>高級提示</v-btn>
 
       <v-dialog v-model="hintDialog3" width="300">
         <v-card>
@@ -105,8 +98,8 @@
     </div>
     <v-dialog :value="completed" max-width="300" persistent>
       <v-card>
-        <v-card-title primary-title>哇！你真棒</v-card-title>
-        <v-card-text>恭喜已找齊了四家藥舖！</v-card-text>
+        <v-card-title primary-title class="headline">太好了！</v-card-title>
+        <v-card-text>已找齊了四家藥舖！</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn flat @click="NextView">下一步</v-btn>
@@ -145,6 +138,8 @@ export default {
             lat: 25.057297,
             lng: 121.509715
           },
+          itemName: '沙參',
+          img: require('@/assets/item/沙參.png'),
           completed: false
         },
         {
@@ -153,6 +148,8 @@ export default {
             lat: 25.058729,
             lng: 121.509634
           },
+          itemName: '薄荷',
+          img: require('@/assets/item/薄荷.png'),
           completed: false
         },
         {
@@ -161,6 +158,8 @@ export default {
             lat: 25.054674,
             lng: 121.510302
           },
+          itemName: '生甘草',
+          img: require('@/assets/item/生甘草.png'),
           completed: false
         },
         {
@@ -169,6 +168,8 @@ export default {
             lat: 25.055746,
             lng: 121.509894
           },
+          itemName: '炙百部',
+          img: require('@/assets/item/炙百部.png'),
           completed: false
         }
       ],
@@ -190,7 +191,18 @@ export default {
     showPrompt () {
       let showPrompt = confirm('這已經是最高級的提示了，確定不再努力看看嗎？')
       this.hintDialog3 = showPrompt
+    },
+    locate (isCorrect) {
+      this.currentTarget.completed = isCorrect
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+</style>
