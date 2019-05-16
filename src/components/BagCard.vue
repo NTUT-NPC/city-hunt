@@ -29,7 +29,7 @@
 }
 
 .bag_item_name {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 .item_title {
   font-size: 1.5rem;
@@ -55,7 +55,7 @@ li {
   margin-bottom: 45px;
   max-width: 120px;
   min-width: 80px;
-  max-height: 200px;
+  max-height: 240px;
   min-width: 100px;
   display: flex;
   flex-direction: column;
@@ -85,16 +85,16 @@ export default {
   data () {
     return {
       items: [
-        { name: '信封_線索1', img: require('@/assets/item/ch2_信封_線索1.png'), Mission: 5 },
-        { name: '信_線索2', img: require('@/assets/item/ch2_信_線索2.jpg'), Mission: 5 },
+        { name: '信封', img: require('@/assets/item/ch2_信封_線索1.png'), Mission: 5 },
+        { name: '信', img: require('@/assets/item/ch2_信_線索2.jpg'), Mission: 5 },
         { name: '地址號碼解說', img: require('@/assets/item/ch2_地址號碼解說_線索3.jpg'), Mission: 5 },
-        { name: '線索(一)線索1', img: require('@/assets/item/ch3-1_線索(一)_線索1.jpg'), Mission: 6 },
-        { name: '線索(二)線索2', img: require('@/assets/item/ch3-1_線索(二)_線索2.png'), Mission: 6 },
-        { name: '地圖_線索1', img: require('@/assets/item/ch3-2_地圖_線索1.jpg'), Mission: 6 },
-        { name: '陳先生給的照片_線索1', img: require('@/assets/item/ch4_陳先生給的照片_線索1.jpg'), Mission: 11 },
+        { name: '線索 - 1', img: require('@/assets/item/ch3-1_線索(一)_線索1.jpg'), Mission: 6 },
+        { name: '線索 - 2', img: require('@/assets/item/ch3-1_線索(二)_線索2.png'), Mission: 6 },
+        { name: '地圖', img: require('@/assets/item/ch3-2_地圖_線索1.jpg'), Mission: 6 },
+        { name: '陳先生給的照片', img: require('@/assets/item/ch4_陳先生給的照片_線索1.jpg'), Mission: 11 },
         { name: '文達給永佳的信', img: require('@/assets/item/ch4 文達給永嘉的信.jpg'), Mission: 9 },
         { name: '永嘉自白信', img: require('@/assets/item/ch4 永嘉自白信.jpg'), Mission: 9 },
-        { name: '商人ab合照', img: require('@/assets/item/ch4 商人ab合照.jpg'), Mission: 9 }
+        { name: '商人陳文達與張永嘉合照', img: require('@/assets/item/ch4 商人ab合照.jpg'), Mission: 9 }
       ]
     }
   },
