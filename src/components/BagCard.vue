@@ -1,7 +1,7 @@
 <template>
   <div class="bag_container">
     <ul>
-      <li v-for="(item,index) in items" :key="index">
+      <li v-for="(item,index) in filterItems" :key="index">
         <v-dialog v-model="item.show" width="500">
           <template v-slot:activator="{ on }">
             <div class="center">
@@ -85,25 +85,24 @@ export default {
   data () {
     return {
       items: [
-        { name: '信封', img: require('@/assets/item/ch2線索1_信封.png'), show: false },
-        { name: '信', img: require('@/assets/item/ch2線索2_信.png'), show: false },
-        { name: '地址號碼解說', img: require('@/assets/item/ch2線索3_地址號碼解說.jpg'), show: false },
-        { name: '第一部分線索1', img: require('@/assets/item/ch3第一部分線索1.png'), show: false },
-        { name: '第二部分地圖', img: require('@/assets/item/ch3第二部分地圖.png'), show: false },
-        // { name: '文達給永嘉的信', img: require('@/assets/item/ch4 盒內的 文達給永嘉的信.jpg'), show: false },
-        // { name: '盒內的商人ab合照', img: require('@/assets/item/ch4 盒內的商人ab合照.png'), show: false },
-        // { name: '盒內的永嘉自白信', img: require('@/assets/item/ch4 盒內的永嘉自白信.jpg'), show: false },
-        // { name: '盒子開', img: require('@/assets/item/ch4盒子開.PNG'), show: false },
-        // { name: '盒子關', img: require('@/assets/item/ch4盒子關.PNG'), show: false },
-        { name: '線索1', img: require('@/assets/item/ch4第一部份-線索1.jpg'), show: false },
-        { name: '線索2', img: require('@/assets/item/ch4第一部份_線索2.jpg'), show: false },
-        { name: '水門照', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), show: false },
-        // { name: 'ch5八卦謎題-法器', img: require('@/assets/item/ch5八卦謎題-法器.png'), show: false },
-        // { name: 'ch5八卦謎題線索-旅人筆記', img: require('@/assets/item/ch5八卦謎題線索-旅人筆記.png'), show: false },
-        { name: '信壓', img: require('@/assets/item/信壓-01.png'), show: false },
-        { name: '信封', img: require('@/assets/item/信封.png'), show: false }
-
+        { name: '信封', img: require('@/assets/item/ch2線索1_信封.png'), Mission: 1, Story: 1 },
+        { name: '信', img: require('@/assets/item/ch2線索2_信.png'), Mission: 2, Story: 1 },
+        { name: '地址號碼解說', img: require('@/assets/item/ch2線索3_地址號碼解說.jpg'), Mission: 2, Story: 1 },
+        { name: '第一部分線索1', img: require('@/assets/item/ch3第一部分線索1.png'), Mission: 2, Story: 1 },
+        { name: '第二部分地圖', img: require('@/assets/item/ch3第二部分地圖.png'), Mission: 2, Story: 3 },
+        { name: '線索1', img: require('@/assets/item/ch4第一部份-線索1.jpg'), Mission: 3, Story: 2 },
+        { name: '線索2', img: require('@/assets/item/ch4第一部份_線索2.jpg'), Mission: 3, Story: 2 },
+        { name: '水門照', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), Mission: 3, Story: 2 },
+        { name: '信壓', img: require('@/assets/item/信壓-01.png'), Mission: 3, Story: 2 },
+        { name: '信封', img: require('@/assets/item/信封.png'), Mission: 3, Story: 2 }
       ]
+    }
+  },
+  computed: {
+    filterItems () {
+      return this.items.filter(function (item) {
+        return item.Mission <= localStorage.Mission
+      })
     }
   }
 }
