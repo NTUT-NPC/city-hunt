@@ -14,7 +14,7 @@
           color="primary"
           ></v-progress-circular>
         </div>
-        <iframe @load="loadingJudge" src="https://www.youtube.com/embed/a1GqoKNiAzY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe @load="loadingJudge" src="https://www.youtube.com/embed/Sxnqa4YLmvU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </v-layout>
       <v-btn
       style="max-width: 300px;"
