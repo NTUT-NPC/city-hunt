@@ -21,6 +21,7 @@ import Mission49 from '@/components/Mission4/Mission4-9'
 import Mission410 from '@/components/Mission4/Mission4-10'
 import Mission411 from '@/components/Mission4/Mission4-11'
 import BagCard from '@/components/BagCard'
+import ReviewCard from '@/components/ReviewCard'
 import Navbar from '@/components/Navbar'
 import TimeLine from '@/components/TimeLine'
 
@@ -45,6 +46,7 @@ export default {
     Mission410,
     Mission411,
     BagCard,
+    ReviewCard,
     Navbar,
     TimeLine
   },
@@ -69,14 +71,16 @@ export default {
     component () {
       if (this.nav === 0) {
         return `Mission4${this.story}`
-      } else {
+      } else if (this.nav === 1) {
         return 'BagCard'
+      } else {
+        return 'ReviewCard'
       }
     }
   },
   methods: {
     nextStory () {
-      if (this.story === 11) {
+      if (+this.story >= 11) {
         localStorage.story = +1
         this.$emit('Mission', '5')
       } else {
