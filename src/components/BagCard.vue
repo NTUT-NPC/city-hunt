@@ -85,16 +85,16 @@ export default {
   data () {
     return {
       items: [
-        { name: '信封', img: require('@/assets/item/ch2線索1_信封.png'), Mission: 0 },
-        { name: '信', img: require('@/assets/item/ch2線索2_信.png'), Mission: 0 },
-        { name: '地址號碼解說', img: require('@/assets/item/ch2線索3_地址號碼解說.jpg'), Mission: 2 },
-        { name: '第一部分線索1', img: require('@/assets/item/ch3第一部分線索1.png'), Mission: 3 },
-        { name: '第二部分地圖', img: require('@/assets/item/ch3第二部分地圖.png'), Mission: 3 },
-        { name: '線索1', img: require('@/assets/item/ch4第一部份-線索1.jpg'), Mission: 3 },
-        { name: '線索2', img: require('@/assets/item/ch4第一部份_線索2.jpg'), Mission: 3 },
-        { name: '水門照', img: require('@/assets/item/ch4第二部分線索-水門照.jpg'), Mission: 3 },
-        { name: '信壓', img: require('@/assets/item/信壓-01.png'), Mission: 3 },
-        { name: '信封', img: require('@/assets/item/信封.png'), Mission: 3 }
+        { name: '信封_線索1', img: require('@/assets/item/ch2_信封_線索1.png'), Mission: 5 },
+        { name: '信_線索2', img: require('@/assets/item/ch2_信_線索2.jpg'), Mission: 5 },
+        { name: '地址號碼解說', img: require('@/assets/item/ch2_地址號碼解說_線索3.jpg'), Mission: 5 },
+        { name: '線索(一)線索1', img: require('@/assets/item/ch3-1_線索(一)_線索1.jpg'), Mission: 6 },
+        { name: '線索(二)線索2', img: require('@/assets/item/ch3-1_線索(二)_線索2.png'), Mission: 6 },
+        { name: '地圖_線索1', img: require('@/assets/item/ch3-2_地圖_線索1.jpg'), Mission: 6 },
+        { name: '陳先生給的照片_線索1', img: require('@/assets/item/ch4_陳先生給的照片_線索1.jpg'), Mission: 11 },
+        { name: '文達給永佳的信', img: require('@/assets/item/ch4 文達給永嘉的信.jpg'), Mission: 9 },
+        { name: '永嘉自白信', img: require('@/assets/item/ch4 永嘉自白信.jpg'), Mission: 9 },
+        { name: '商人ab合照', img: require('@/assets/item/ch4 商人ab合照.jpg'), Mission: 9 }
       ]
     }
   },
