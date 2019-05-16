@@ -2,18 +2,18 @@
   <v-layout class="py-4" column align-center justify-center fill-height ref="image">
     <h2 class="display-1 font-weight-bold">找到四家藥舖</h2>
     <v-dialog :value="locateDialog" @input="locateDialog = $event" width="300">
-      <v-card class="pa-3">
+      <v-card :class="!currentTarget.completed ? 'pa-3' : ''">
         <v-layout column justify-center align-center>
-          <h3 class="display-1 font-weight-bold" v-text="currentTarget.tag"></h3>
-          <locate
-            v-if="!currentTarget.completed"
-            :key="`locate-${currentTarget.tag}`"
-            :target="currentTarget.location"
-            @locate="locate($event)"
-          ></locate>
+          <template v-if="!currentTarget.completed">
+            <h3 class="display-1 font-weight-bold" v-text="currentTarget.tag"></h3>
+            <locate
+              :key="`locate-${currentTarget.tag}`"
+              :target="currentTarget.location"
+              @locate="locate($event)"
+            ></locate>
+          </template>
           <template v-else>
-            <h3 class="subheading">已獲得藥材{{ currentTarget.itemName }}</h3>
-            <img class="image" :src="currentTarget.img">
+            <img class="image" :src="currentTarget.img" @click="locateDialog = false">
           </template>
         </v-layout>
       </v-card>
@@ -139,7 +139,7 @@ export default {
             lng: 121.509715
           },
           itemName: '沙參',
-          img: require('@/assets/item/沙參.png'),
+          img: require('@/assets/Mission3/herbs/沙參.jpg'),
           completed: false
         },
         {
@@ -149,7 +149,7 @@ export default {
             lng: 121.509634
           },
           itemName: '薄荷',
-          img: require('@/assets/item/薄荷.png'),
+          img: require('@/assets/Mission3/herbs/薄荷.jpg'),
           completed: false
         },
         {
@@ -159,7 +159,7 @@ export default {
             lng: 121.510302
           },
           itemName: '生甘草',
-          img: require('@/assets/item/生甘草.png'),
+          img: require('@/assets/Mission3/herbs/生甘草.jpg'),
           completed: false
         },
         {
@@ -169,7 +169,7 @@ export default {
             lng: 121.509894
           },
           itemName: '炙百部',
-          img: require('@/assets/item/炙百部.png'),
+          img: require('@/assets/Mission3/herbs/炙百部.jpg'),
           completed: false
         }
       ],
