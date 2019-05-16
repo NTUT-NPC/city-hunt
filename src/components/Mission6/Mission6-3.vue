@@ -1,5 +1,7 @@
 <template>
-    <img src="@/assets/Mission6/6-2.jpg" style="width: 100%; max-width: 800px;">
+    <a href="https://forms.gle/HmYmpASr2t3rnSvr9">
+      <img src="@/assets/Mission6/ending.png" style="width: 100%;max-width: 800px;">
+    </a>
 </template>
 
 <script>
