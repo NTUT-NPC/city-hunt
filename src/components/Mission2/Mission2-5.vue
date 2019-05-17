@@ -184,7 +184,7 @@ export default {
   },
   methods: {
     inputCheck () {
-      if (this.input === '永樂町通一町目226號') {
+      if (this.input === '永樂町通226號') {
         this.$emit('inputJudge', false)
       } else {
         this.inputJudge = '輸入錯誤！再重新試試看！'
