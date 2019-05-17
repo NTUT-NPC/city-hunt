@@ -11,7 +11,7 @@
           class="mx-auto"
         >
         <h1 class="my-5 text-xs-center px-5">輸入對應方位的正確代碼</h1>
-        <v-container grid-list-xl>
+        <v-container grid-list-xl @click="cancelText">
           <v-layout row wrap>
             <v-flex
               xs6
@@ -229,11 +229,16 @@ export default {
       this.$emit('inputJudge', false)
       this.$refs.image.click()
     },
+    cancelText () {
+      this.hasError = false
+    },
     inputJudge () {
       for (let i of this.inputs) {
         if (i.input !== i.answer) {
           this.hasError = true
           return
+        } else {
+          this.hasError = false
         }
       }
 
