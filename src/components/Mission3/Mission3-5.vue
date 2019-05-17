@@ -115,13 +115,21 @@ export default {
   created () {
     this.$emit('inputJudge', true)
   },
+  mounted () {
+    this.targets[0].completed = localStorage.herb0 === 'true'
+    this.targets[1].completed = localStorage.herb1 === 'true'
+    this.targets[2].completed = localStorage.herb2 === 'true'
+    this.targets[3].completed = localStorage.herb3 === 'true'
+  },
   computed: {
     completed () {
       for (let target of this.targets) {
         if (!target.completed) {
+          console.log('yes i do')
           return false
         }
       }
+      console.log('yyy')
       return true
     }
   },
@@ -195,6 +203,12 @@ export default {
     locate (isCorrect) {
       this.currentTarget.completed = isCorrect
     }
+  },
+  beforeDestroy () {
+    localStorage.herb0 = this.targets[0].completed
+    localStorage.herb1 = this.targets[1].completed
+    localStorage.herb2 = this.targets[2].completed
+    localStorage.herb3 = this.targets[3].completed
   }
 }
 </script>
